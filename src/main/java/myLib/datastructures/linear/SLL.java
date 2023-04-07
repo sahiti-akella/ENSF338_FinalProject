@@ -91,11 +91,33 @@ public class SLL {
     }
 
     public void deleteHead(){
-        // Implement
+        if (head == null) {
+            return;
+        }
+        head = head.getNext();
+        size--;
+        if (head == null) {
+            tail = null;
+        }
     }
 
     public void deleteTail(){
-        // Implement
+        if (head == null) {
+            return;
+        }
+        if (head.getNext() == null) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        SNode current = head;
+        while (current.getNext() != tail) {
+            current = current.getNext();
+        }
+        current.setNext(null);
+        tail = current;
+        size--;
     }
 
     public void delete(SNode node){
@@ -158,7 +180,6 @@ public class SLL {
             System.out.println("List is empty");  
             return;  
         }  
-        System.out.println("Adding nodes to the end of the list: ");  
         while(current != null) {  
             //Prints each node by incrementing pointer  
             System.out.print(current.getData() + " ");  
@@ -173,31 +194,49 @@ public class SLL {
         SNode validSearch = new SNode(4);
         SNode invalidSearch = new SNode(8);
   
+        System.out.println("Adding nodes to the end of the list: ");  
         sList.insertTail(new SNode(1));  
         sList.display();  
   
+        System.out.println("Adding nodes to the end of the list: ");  
         sList.insertTail(new SNode(3));  
         sList.display();  
   
+        System.out.println("Adding nodes to the end of the list: ");  
         sList.insertTail(validSearch);  
         sList.display();  
   
+        System.out.println("Adding nodes to the end of the list: ");  
         sList.insertTail(new SNode(7));  
         sList.display();  
 
+        System.out.println("Adding nodes to the start of the list: ");  
+        sList.insertHead(new SNode(2));  
+        sList.display();  
+
+        System.out.println("Adding nodes to specified position in the list: ");  
         sList.insert(new SNode(5), 3);  
         sList.display();
 
+        System.out.println("Sort and insert node in the list: ");  
         sList.sortedInsert(new SNode(6));  
         sList.display();
 
-        SNode node1 = sList.search(validSearch);  
         System.out.println("Finding node..");
+        SNode node1 = sList.search(validSearch);  
         System.out.println(node1);
 
+        System.out.println("Finding non existent node..");
         SNode node2 = sList.search(invalidSearch);  
-        System.out.println("Finding node..");
         System.out.println(node2);
+
+        System.out.println("Deleting head");
+        sList.deleteHead(); 
+        sList.display();
+
+        System.out.println("Deleting tail");
+        sList.deleteTail(); 
+        sList.display();
 
     }  
 }  
