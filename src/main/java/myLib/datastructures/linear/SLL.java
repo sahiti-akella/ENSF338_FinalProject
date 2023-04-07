@@ -32,7 +32,6 @@ public class SLL {
     }
 
     public void insertTail(SNode node) {
-      // Implement
       if (head == null) {
         head = node;
         tail = node;
@@ -44,7 +43,22 @@ public class SLL {
     }
 
     public void insert(SNode node, int position){
-        // Implement
+        if (position < 1 || position > size + 1) {
+            throw new IndexOutOfBoundsException("Invalid position for insertion");
+        }
+        if (position == 1) {
+            insertHead(node);
+        } else if (position == size + 1) {
+            insertTail(node);
+        } else {
+            SNode current = head;
+            for (int i = 2; i < position; i++) {
+                current = current.getNext();
+            }
+            node.setNext(current.getNext());
+            current.setNext(node);
+            size++;
+        }
     }
 
     public void sortedInsert(SNode node){
@@ -103,20 +117,23 @@ public class SLL {
         SLL sList = new SLL();  
   
         //Adding 1 to the list  
-        sList.insertHead(new SNode(1));  
+        sList.insertTail(new SNode(1));  
         sList.display();  
   
         //Adding 2 to the list  
-        sList.insertHead(new SNode(2));  
+        sList.insertTail(new SNode(2));  
         sList.display();  
   
         //Adding 3 to the list  
-        sList.insertHead(new SNode(3));  
+        sList.insertTail(new SNode(3));  
         sList.display();  
   
         //Adding 4 to the list  
-        sList.insertHead(new SNode(4));  
+        sList.insertTail(new SNode(4));  
         sList.display();  
+
+        sList.insert(new SNode(5), 3);  
+        sList.display();
     }  
 }  
     
