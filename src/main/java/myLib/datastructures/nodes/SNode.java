@@ -9,6 +9,11 @@ public class SNode {
         next = null;
     }
 
+    @Override
+    public String toString() {
+        return Integer.toString(data);
+    }
+
     public int getData() {
         return data;
     }

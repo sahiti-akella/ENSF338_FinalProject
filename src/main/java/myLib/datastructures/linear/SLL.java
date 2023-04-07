@@ -79,8 +79,15 @@ public class SLL {
         }
     }
 
-    public void search(SNode node){
-        // Implement
+    public SNode search(SNode node){
+        SNode current = head;
+        while (current != null) {
+            if (current.equals(node)) {
+                return current;
+            }
+            current = current.getNext();
+        }
+        return null;
     }
 
     public void deleteHead(){
@@ -163,20 +170,18 @@ public class SLL {
     public static void main(String[] args) {  
   
         SLL sList = new SLL();  
+        SNode validSearch = new SNode(4);
+        SNode invalidSearch = new SNode(8);
   
-        //Adding 1 to the list  
         sList.insertTail(new SNode(1));  
         sList.display();  
   
-        //Adding 2 to the list  
         sList.insertTail(new SNode(3));  
         sList.display();  
   
-        //Adding 3 to the list  
-        sList.insertTail(new SNode(4));  
+        sList.insertTail(validSearch);  
         sList.display();  
   
-        //Adding 4 to the list  
         sList.insertTail(new SNode(7));  
         sList.display();  
 
@@ -185,6 +190,14 @@ public class SLL {
 
         sList.sortedInsert(new SNode(6));  
         sList.display();
+
+        SNode node1 = sList.search(validSearch);  
+        System.out.println("Finding node..");
+        System.out.println(node1);
+
+        SNode node2 = sList.search(invalidSearch);  
+        System.out.println("Finding node..");
+        System.out.println(node2);
 
     }  
 }  
