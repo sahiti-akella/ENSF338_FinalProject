@@ -169,7 +169,9 @@ public class SLL {
     }
 
     public void clear(){
-        // Implement
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     public void print(){
@@ -258,6 +260,12 @@ public class SLL {
         System.out.println("Deleting specified node");
         sList.delete(validSearch); 
         sList.display();
+
+        System.out.println("Clearing entire list");
+        sList.clear(); 
+        sList.display();
+
+
 
     }  
 }  
