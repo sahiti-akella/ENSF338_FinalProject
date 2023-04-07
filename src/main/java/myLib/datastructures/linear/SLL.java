@@ -200,21 +200,6 @@ public class SLL {
 
 
     // testing functions
-    public void display() {  
-        //Node current will point to head  
-        SNode current = head;  
-        if(head == null) {  
-            System.out.println("List is empty");  
-            return;  
-        }  
-        while(current != null) {  
-            //Prints each node by incrementing pointer  
-            System.out.print(current.getData() + " ");  
-            current = current.getNext();  
-        }  
-        System.out.println();  
-    }  
-  
     public static void main(String[] args) {  
   
         SLL sList = new SLL();  
