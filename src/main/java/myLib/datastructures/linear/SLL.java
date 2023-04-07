@@ -121,7 +121,25 @@ public class SLL {
     }
 
     public void delete(SNode node){
-        // Implement
+        if (head == null) {
+            return;
+        }
+        if (head.equals(node)) {
+            deleteHead();
+            return;
+        }
+        SNode current = head;
+        while (current.getNext() != null && !current.getNext().equals(node)) {
+        current = current.getNext();
+        }
+        if (current.getNext() == null) {
+        return;
+        }
+        current.setNext(current.getNext().getNext());
+        if (current.getNext() == null) {
+        tail = current;
+        }
+        size--;
     }
 
     public void sort(){
@@ -157,7 +175,6 @@ public class SLL {
     public void print(){
         // Implement
     }
-
 
     // helper functions
     private boolean isSorted() {
@@ -236,6 +253,10 @@ public class SLL {
 
         System.out.println("Deleting tail");
         sList.deleteTail(); 
+        sList.display();
+
+        System.out.println("Deleting specified node");
+        sList.delete(validSearch); 
         sList.display();
 
     }  
