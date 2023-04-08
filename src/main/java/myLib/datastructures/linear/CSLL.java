@@ -73,9 +73,17 @@ public class CSLL extends SLL {
     }
 
     @Override
+    public void clear() {
+        super.clear();
+        if (head != null) {
+            head.setNext(head);
+        }
+    }
+
+    @Override
     public void print() {
         if (size == 0) {
-            System.out.println("Empty list");
+            System.out.println("List is empty");
             return;
         }
         System.out.println("List length: " + size);
@@ -102,6 +110,9 @@ public class CSLL extends SLL {
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
+        csList.clear();
+        csList.print();
+       
         
     }  
 }
