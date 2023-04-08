@@ -4,9 +4,9 @@ import main.java.myLib.datastructures.nodes.SNode;
 
 public class SLL {
 
-    private SNode head;
-    private SNode tail;
-    private int size;
+    protected SNode head;
+    protected SNode tail;
+    protected int size;
 
     public SLL() {
         head = null;
@@ -187,7 +187,7 @@ public class SLL {
     }
 
     // helper functions
-    private boolean isSorted() {
+    protected boolean isSorted() {
         SNode current = head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
