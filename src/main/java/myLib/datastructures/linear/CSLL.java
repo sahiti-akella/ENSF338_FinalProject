@@ -54,6 +54,24 @@ public class CSLL extends SLL {
         size--;
     }
 
+    public void deleteTail() {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1) {
+            head = null;
+            tail = null;
+        } else {
+            SNode current = head;
+            while (current.getNext() != tail) {
+                current = current.getNext();
+            }
+            tail = current;
+            tail.setNext(head); // loop back to head node
+        }
+        size--;
+    }
+
     @Override
     public void print() {
         if (size == 0) {
@@ -77,8 +95,10 @@ public class CSLL extends SLL {
         csList.insertHead(new SNode(1));
         csList.insertHead(new SNode(2));
         csList.insertHead(new SNode(3));
+        csList.insertHead(new SNode(5));
         csList.insertTail(new SNode(4));
         csList.deleteHead();
+        csList.deleteTail();
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
