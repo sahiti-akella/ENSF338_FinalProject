@@ -175,6 +175,10 @@ public class SLL {
     }
 
     public void print(){
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
         System.out.println("List length: " + size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
