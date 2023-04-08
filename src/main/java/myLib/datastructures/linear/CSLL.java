@@ -149,6 +149,75 @@ public class CSLL extends SLL {
         System.out.println();
     }
    
+    @Override
+    public void sortedInsert(SNode node){
+        if (head == null) {
+            insertHead(node);
+            node.setNext(head);
+            head = node;
+        } else if (node.getData() <= head.getData()) {
+            insertHead(node);
+        } else {
+            SNode current = head.getNext();
+            while (current != head && node.getData() > current.getData()) {
+                current = current.getNext();
+            }
+            node.setNext(current.getNext());
+            current.setNext(node);
+        }
+        
+        if (!isSorted()) {
+            sort();
+        }
+    }
+
+    @Override
+    public void sort() {
+        if (head == null || head.getNext() == head) {
+            return;
+        }
+    
+        SNode current = head;
+        do {
+            boolean sorted = true;
+            SNode temp = current.getNext();
+            while (temp != head && temp != current) {
+                if (current.getData() > temp.getData()) {
+                    swap(current, temp);
+                    sorted = false;
+                }
+                temp = temp.getNext();
+            }
+            if (sorted) {
+                break;
+            }
+            current = current.getNext();
+        } while (current != head);
+    }
+    
+    // helper functions
+    @Override
+    protected boolean isSorted() {
+        if (head == null || head.getNext() == head) {
+            return true;
+        }
+        
+        SNode current = head;
+        while (current.getNext() != head) {
+            if (current.getData() > current.getNext().getData()) {
+                return false;
+            }
+            current = current.getNext();
+        }
+        return true;
+    }
+    
+    private void swap(SNode node1, SNode node2) {
+        int temp = node1.getData();
+        node1.setData(node2.getData());
+        node2.setData(temp);
+    }
+    
     // testing functions
     public static void main(String[] args) {  
         CSLL csList = new CSLL();
@@ -160,11 +229,9 @@ public class CSLL extends SLL {
         csList.insertHead(new SNode(3));
         csList.insertHead(new SNode(5));
         csList.insertHead(node);
-        csList.insertTail(new SNode(4));
         csList.print();
-        csList.deleteTail();
-        csList.print();
-        csList.insert(new SNode(8), 1);
+        System.out.println("After Sorting");
+        csList.sortedInsert(new SNode(7));
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
