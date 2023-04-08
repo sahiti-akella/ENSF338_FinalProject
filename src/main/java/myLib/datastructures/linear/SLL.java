@@ -198,7 +198,6 @@ public class SLL {
         return true;
     }
 
-
     // testing functions
     public static void main(String[] args) {  
   
