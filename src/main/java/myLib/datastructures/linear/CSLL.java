@@ -40,6 +40,21 @@ public class CSLL extends SLL {
     }
 
     @Override
+    public void deleteHead() {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.getNext();
+            tail.setNext(head);
+        }
+        size--;
+    }
+
+    @Override
     public void print() {
         if (size == 0) {
             System.out.println("Empty list");
@@ -58,13 +73,15 @@ public class CSLL extends SLL {
    
     // testing functions
     public static void main(String[] args) {  
-        CSLL csll = new CSLL();
-        csll.insertHead(new SNode(1));
-        csll.insertHead(new SNode(2));
-        csll.insertHead(new SNode(3));
-        csll.insertTail(new SNode(4));
-        csll.print();
-        System.out.println("Tail next node: " + csll.tail.getNext());
-        System.out.println("Tail: " + csll.tail);
+        CSLL csList = new CSLL();
+        csList.insertHead(new SNode(1));
+        csList.insertHead(new SNode(2));
+        csList.insertHead(new SNode(3));
+        csList.insertTail(new SNode(4));
+        csList.deleteHead();
+        csList.print();
+        System.out.println("Tail: " + csList.tail);
+        System.out.println("Tail next: " + csList.tail.getNext());
+        
     }  
 }
