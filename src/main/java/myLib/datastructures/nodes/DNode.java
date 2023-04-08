@@ -26,7 +26,7 @@ public class DNode {
         return this.prev;
     }
 
-    public void setLeft(DNode prev) {
+    public void setPrev(DNode prev) {
         this.prev = prev;
     }
 
@@ -34,7 +34,7 @@ public class DNode {
         return this.next;
     }
 
-    public void setRight(DNode next) {
+    public void setNext(DNode next) {
         this.next = next;
     }
 }
