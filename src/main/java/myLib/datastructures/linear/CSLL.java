@@ -38,6 +38,23 @@ public class CSLL extends SLL {
         }
         size++;
     }
+
+    @Override
+    public void print() {
+        if (size == 0) {
+            System.out.println("Empty list");
+            return;
+        }
+        System.out.println("List length: " + size);
+        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.print("List content: ");
+        SNode current = head;
+        do {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        } while (current != head);
+        System.out.println();
+    }
    
     // testing functions
     public static void main(String[] args) {  
@@ -46,7 +63,8 @@ public class CSLL extends SLL {
         csll.insertHead(new SNode(2));
         csll.insertHead(new SNode(3));
         csll.insertTail(new SNode(4));
+        csll.print();
         System.out.println("Tail next node: " + csll.tail.getNext());
-        System.out.println("Tail " + csll.tail);
+        System.out.println("Tail: " + csll.tail);
     }  
 }
