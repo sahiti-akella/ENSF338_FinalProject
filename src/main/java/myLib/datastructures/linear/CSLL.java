@@ -54,6 +54,7 @@ public class CSLL extends SLL {
         size--;
     }
 
+    @Override
     public void deleteTail() {
         if (size == 0) {
             return;
@@ -69,6 +70,35 @@ public class CSLL extends SLL {
             tail = current;
             tail.setNext(head); // loop back to head node
         }
+        size--;
+    }
+
+    @Override
+    public void delete(SNode node) {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1 && head.equals(node)) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        if (head.equals(node)) {
+            deleteHead();
+            return;
+        }
+        SNode current = head;
+        while (current.getNext() != head && !current.getNext().equals(node)) {
+            current = current.getNext();
+        }
+        if (current.getNext().equals(head)) {
+            return;
+        }
+        if (current.getNext().equals(tail)) {
+            tail = current;
+        }
+        current.setNext(current.getNext().getNext());
         size--;
     }
 
@@ -100,13 +130,21 @@ public class CSLL extends SLL {
     // testing functions
     public static void main(String[] args) {  
         CSLL csList = new CSLL();
+
+        SNode node = new SNode(6);
+
         csList.insertHead(new SNode(1));
         csList.insertHead(new SNode(2));
         csList.insertHead(new SNode(3));
         csList.insertHead(new SNode(5));
+        csList.insertHead(node);
         csList.insertTail(new SNode(4));
-        csList.deleteHead();
+        csList.print();
+        //csList.deleteHead();
+        //csList.print();
         csList.deleteTail();
+        csList.print();
+        csList.delete(node);
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
