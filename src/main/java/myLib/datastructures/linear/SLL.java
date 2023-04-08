@@ -128,6 +128,10 @@ public class SLL {
             deleteHead();
             return;
         }
+        if (tail.equals(node)) {
+            deleteTail();
+            return;
+        }
         SNode current = head;
         while (current.getNext() != null && !current.getNext().equals(node)) {
         current = current.getNext();
