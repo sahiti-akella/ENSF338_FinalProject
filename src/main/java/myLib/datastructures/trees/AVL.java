@@ -18,7 +18,11 @@ public class AVL extends BST {
      }
 
      public AVL(TNode obj){
-        // Implement
+        this.root = obj;
+
+        if (obj.getLeft() != null || obj.getRight() != null) {
+            this.root = balance(obj);
+        }
      }
 
      // Insert(int val)
