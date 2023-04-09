@@ -187,14 +187,20 @@ public class SLL {
             System.out.println("List is empty");
             return;
         }
+    
+        boolean isCircular = (tail != null && tail.getNext() == head);
+    
         System.out.println("List length: " + size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
+    
         SNode current = head;
-        while (current != null) {
+    
+        do {
             System.out.print(current.getData() + " ");
             current = current.getNext();
-        }
+        } while (isCircular ? current != head : current != null);
+    
         System.out.println();
     }
 
