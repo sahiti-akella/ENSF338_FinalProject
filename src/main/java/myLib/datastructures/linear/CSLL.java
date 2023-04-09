@@ -75,32 +75,84 @@ public class CSLL extends SLL {
     }
 
     @Override
+<<<<<<< HEAD
     public void sortedInsert(SNode node) {
+=======
+    public void delete(SNode node) {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1 && head.equals(node)) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        if (head.equals(node)) {
+            deleteHead();
+            return;
+        }
+        SNode current = head;
+        while (current.getNext() != head && !current.getNext().equals(node)) {
+            current = current.getNext();
+        }
+        if (current.getNext().equals(head)) {
+            return;
+        }
+        if (current.getNext().equals(tail)) {
+            tail = current;
+        }
+        current.setNext(current.getNext().getNext());
+        size--;
+    }
+
+    @Override
+    public void clear() {
+        super.clear();
+        if (head != null) {
+            head.setNext(head);
+        }
+    }
+
+    @Override
+    public void print() {
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("List length: " + size);
+        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.print("List content: ");
+        SNode current = head;
+        do {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        } while (current != head);
+        System.out.println();
+    }
+   
+    @Override
+    public void sortedInsert(SNode node){
+>>>>>>> parent of ce26723 (CSLL implementation done)
         if (head == null) {
-            node.setNext(node);
-            head = node;
-            tail = node;
-        } else if (node.getData() < head.getData()) {
+            insertHead(node);
             node.setNext(head);
             head = node;
-            tail.setNext(head);
+        } else if (node.getData() <= head.getData()) {
+            insertHead(node);
         } else {
-            SNode current = head;
-            while (current.getNext() != head && node.getData() > current.getNext().getData()) {
+            SNode current = head.getNext();
+            while (current != head && node.getData() > current.getData()) {
                 current = current.getNext();
             }
             node.setNext(current.getNext());
             current.setNext(node);
-            if (current == tail) {
-                tail = node;
-            }
         }
-    
-        size++;
+        
         if (!isSorted()) {
             sort();
         }
-    }    
+    }
 
     @Override
     public void sort() {
@@ -154,27 +206,22 @@ public class CSLL extends SLL {
         
         CSLL csList = new CSLL();
 
-        SNode validSearch = new SNode(4);
-        SNode invalidSearch = new SNode(8);
-        SNode nodeToDelete = new SNode(9);
+        SNode node = new SNode(6);
 
-        System.out.println("\nTESTING ADDING, DELETING AND SORTING: ");  
-  
-        System.out.println("\nAdding nodes to the end of the list: ");  
-        csList.insertTail(nodeToDelete);  
+        csList.insertHead(new SNode(1));
+        csList.insertHead(new SNode(2));
+        csList.insertHead(new SNode(3));
+        csList.insertHead(new SNode(5));
+        csList.insertHead(node);
+        csList.print();
+        System.out.println("After Sorting");
+        csList.sortedInsert(new SNode(7));
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
-  
-        System.out.println("\nAdding nodes to the end of the list: ");  
-        csList.insertTail(new SNode(3));  
-        csList.print();  
-        System.out.println("Tail: " + csList.tail);
-        System.out.println("Tail next: " + csList.tail.getNext());
-  
-        System.out.println("\nAdding nodes to the end of the list: ");  
-        csList.insertTail(validSearch);  
+        csList.clear();
         csList.print();
+<<<<<<< HEAD
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
   
@@ -234,6 +281,9 @@ public class CSLL extends SLL {
         csList.clear(); 
         csList.print();
         System.out.println("\n");  
+=======
+       
+>>>>>>> parent of ce26723 (CSLL implementation done)
         
     }  
 }
