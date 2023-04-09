@@ -97,35 +97,6 @@ public class CSLL extends SLL {
     }
 
     @Override
-    public void delete(SNode node) {
-        if (size == 0) {
-            return;
-        }
-        if (size == 1 && head.equals(node)) {
-            head = null;
-            tail = null;
-            size = 0;
-            return;
-        }
-        if (head.equals(node)) {
-            deleteHead();
-            return;
-        }
-        SNode current = head;
-        while (current.getNext() != head && !current.getNext().equals(node)) {
-            current = current.getNext();
-        }
-        if (current.getNext().equals(head)) {
-            return;
-        }
-        if (current.getNext().equals(tail)) {
-            tail = current;
-        }
-        current.setNext(current.getNext().getNext());
-        size--;
-    }
-
-    @Override
     public SNode search(SNode node) {
         if (head == null) {
             return null;
