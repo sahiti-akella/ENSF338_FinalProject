@@ -81,15 +81,11 @@ public class SLL {
 
     public SNode search(SNode node){
         SNode current = head;
-        boolean isCircular = false;
-        while (current != null && !isCircular) {
+        while (current != null) {
             if (current.equals(node)) {
                 return current;
             }
             current = current.getNext();
-            if (current == head) {
-                isCircular = true;
-            }
         }
         return null;
     }
@@ -132,12 +128,8 @@ public class SLL {
             deleteHead();
             return;
         }
-        if (tail.equals(node)) {
-            deleteTail();
-            return;
-        }
         SNode current = head;
-        while (current.getNext() != tail && !current.getNext().equals(node)) {
+        while (current.getNext() != null && !current.getNext().equals(node)) {
         current = current.getNext();
         }
         if (current.getNext() == null) {
@@ -187,20 +179,14 @@ public class SLL {
             System.out.println("List is empty");
             return;
         }
-    
-        boolean isCircular = (tail != null && tail.getNext() == head);
-    
         System.out.println("List length: " + size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-    
         SNode current = head;
-    
-        do {
+        while (current != null) {
             System.out.print(current.getData() + " ");
             current = current.getNext();
-        } while (isCircular ? current != head : current != null);
-    
+        }
         System.out.println();
     }
 

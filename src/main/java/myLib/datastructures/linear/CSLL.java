@@ -2,7 +2,6 @@ package main.java.myLib.datastructures.linear;
 
 import main.java.myLib.datastructures.nodes.SNode;
 public class CSLL extends SLL {
-
     public CSLL() {
         super();
     }
@@ -41,6 +40,28 @@ public class CSLL extends SLL {
     }
 
     @Override
+    public void insert(SNode node, int position) {
+        if (position < 1 || position > size + 1) {
+            throw new IndexOutOfBoundsException("Invalid position for insertion");
+        }
+        if (position == 1) {
+            insertHead(node);
+            tail.setNext(head); 
+        } else if (position == size + 1) {
+            insertTail(node);
+            tail.setNext(head); 
+        } else {
+            SNode current = head;
+            for (int i = 2; i < position; i++) {
+                current = current.getNext();
+            }
+            node.setNext(current.getNext());
+            current.setNext(node);
+            size++;
+        }
+    }
+    
+    @Override
     public void deleteHead() {
         if (size == 0) {
             return;
@@ -74,6 +95,75 @@ public class CSLL extends SLL {
         size--;
     }
 
+    @Override
+    public void delete(SNode node) {
+        if (size == 0) {
+            return;
+        }
+        if (size == 1 && head.equals(node)) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        if (head.equals(node)) {
+            deleteHead();
+            return;
+        }
+        SNode current = head;
+        while (current.getNext() != head && !current.getNext().equals(node)) {
+            current = current.getNext();
+        }
+        if (current.getNext().equals(head)) {
+            return;
+        }
+        if (current.getNext().equals(tail)) {
+            tail = current;
+        }
+        current.setNext(current.getNext().getNext());
+        size--;
+    }
+
+    @Override
+    public SNode search(SNode node) {
+        if (head == null) {
+            return null;
+        }
+        SNode current = head;
+        do {
+            if (current.equals(node)) {
+                return current;
+            }
+            current = current.getNext();
+        } while (current != head);
+        return null;
+    }    
+
+    @Override
+    public void clear() {
+        super.clear();
+        if (head != null) {
+            head.setNext(head);
+        }
+    }
+
+    @Override
+    public void print() {
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("List length: " + size);
+        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.print("List content: ");
+        SNode current = head;
+        do {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        } while (current != head);
+        System.out.println();
+    }
+   
     @Override
     public void sortedInsert(SNode node) {
         if (head == null) {
@@ -151,7 +241,6 @@ public class CSLL extends SLL {
     
     // testing functions
     public static void main(String[] args) {  
-        
         CSLL csList = new CSLL();
 
         SNode validSearch = new SNode(4);
@@ -234,6 +323,6 @@ public class CSLL extends SLL {
         csList.clear(); 
         csList.print();
         System.out.println("\n");  
-        
+
     }  
 }
