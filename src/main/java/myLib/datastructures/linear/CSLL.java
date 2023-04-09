@@ -2,6 +2,7 @@ package main.java.myLib.datastructures.linear;
 
 import main.java.myLib.datastructures.nodes.SNode;
 public class CSLL extends SLL {
+
     public CSLL() {
         super();
     }
@@ -140,14 +141,6 @@ public class CSLL extends SLL {
     }    
 
     @Override
-    public void clear() {
-        super.clear();
-        if (head != null) {
-            head.setNext(head);
-        }
-    }
-
-    @Override
     public void print() {
         if (size == 0) {
             System.out.println("List is empty");
@@ -233,6 +226,7 @@ public class CSLL extends SLL {
         return true;
     }
     
+
     private void swap(SNode node1, SNode node2) {
         int temp = node1.getData();
         node1.setData(node2.getData());
@@ -241,6 +235,7 @@ public class CSLL extends SLL {
     
     // testing functions
     public static void main(String[] args) {  
+        
         CSLL csList = new CSLL();
 
         SNode validSearch = new SNode(4);
@@ -323,6 +318,6 @@ public class CSLL extends SLL {
         csList.clear(); 
         csList.print();
         System.out.println("\n");  
-
+        
     }  
 }
