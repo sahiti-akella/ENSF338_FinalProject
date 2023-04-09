@@ -81,15 +81,11 @@ public class SLL {
 
     public SNode search(SNode node){
         SNode current = head;
-        boolean isCircular = false;
-        while (current != null && !isCircular) {
+        while (current != null) {
             if (current.equals(node)) {
                 return current;
             }
             current = current.getNext();
-            if (current == head) {
-                isCircular = true;
-            }
         }
         return null;
     }
@@ -123,7 +119,7 @@ public class SLL {
         tail = current;
         size--;
     }
-
+    
     public void delete(SNode node){
         if (head == null) {
             return;
@@ -132,12 +128,8 @@ public class SLL {
             deleteHead();
             return;
         }
-        if (tail.equals(node)) {
-            deleteTail();
-            return;
-        }
         SNode current = head;
-        while (current.getNext() != tail && !current.getNext().equals(node)) {
+        while (current.getNext() != null && !current.getNext().equals(node)) {
         current = current.getNext();
         }
         if (current.getNext() == null) {
@@ -187,20 +179,14 @@ public class SLL {
             System.out.println("List is empty");
             return;
         }
-    
-        boolean isCircular = (tail != null && tail.getNext() == head);
-    
         System.out.println("List length: " + size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-    
         SNode current = head;
-    
-        do {
+        while (current != null) {
             System.out.print(current.getData() + " ");
             current = current.getNext();
-        } while (isCircular ? current != head : current != null);
-    
+        }
         System.out.println();
     }
 
@@ -222,68 +208,61 @@ public class SLL {
         SLL sList = new SLL();  
         SNode validSearch = new SNode(4);
         SNode invalidSearch = new SNode(8);
-  
-        System.out.println("Adding nodes to the end of the list: ");  
-        sList.insertTail(new SNode(1));  
+        SNode nodeToDelete = new SNode(9);
+
+        System.out.println("\nTESTING ADDING, DELETING AND SORTING: ");  
+
+        System.out.println("\nAdding nodes to the end of the list: ");  
+        sList.insertTail(nodeToDelete);  
         sList.print();
-        System.out.println("\n");  
   
-        System.out.println("Adding nodes to the end of the list: ");  
+        System.out.println("\nAdding nodes to the end of the list: ");  
         sList.insertTail(new SNode(3));  
         sList.print();  
-        System.out.println("\n");  
   
-        System.out.println("Adding nodes to the end of the list: ");  
-        sList.insertTail(validSearch);  
+        System.out.println("\nAdding nodes to the end of the list: ");  
+        sList.insertTail(new SNode(2));  
         sList.print();
-        System.out.println("\n");  
   
-        System.out.println("Adding nodes to the end of the list: ");  
+        System.out.println("\nAdding nodes to the end of the list: ");  
         sList.insertTail(new SNode(7));  
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Adding nodes to the start of the list: ");  
-        sList.insertHead(new SNode(2));  
+        System.out.println("\nAdding nodes to the start of the list: ");  
+        sList.insertHead(validSearch);  
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Adding nodes to specified position in the list: ");  
+        System.out.println("\nAdding nodes to specified position in the list: ");  
         sList.insert(new SNode(5), 3);  
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Sort and insert node in the list: ");  
+        System.out.println("\nDeleting specified node: ");
+        sList.delete(nodeToDelete); 
+        sList.print();
+
+        System.out.println("\nSort and insert node in the list: ");  
         sList.sortedInsert(new SNode(6));  
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Finding node..");
-        SNode node1 = sList.search(validSearch);  
-        System.out.println(node1);
-        System.out.println("\n");  
-
-        System.out.println("Finding non existent node..");
-        SNode node2 = sList.search(invalidSearch);  
-        System.out.println(node2);
-        System.out.println("\n");  
-
-        System.out.println("Deleting head");
+        System.out.println("\nDeleting head: ");
         sList.deleteHead(); 
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Deleting tail");
+        System.out.println("\nDeleting tail: ");
         sList.deleteTail(); 
         sList.print();
-        System.out.println("\n");  
 
-        System.out.println("Deleting specified node");
-        sList.delete(validSearch); 
-        sList.print();
-        System.out.println("\n");  
+        System.out.println("\nTESTING SEARCHING AND CLEARING: ");  
 
-        System.out.println("Clearing entire list");
+        System.out.println("\nFinding node..");
+        SNode node1 = sList.search(validSearch);  
+        System.out.println("Node (null if not found): " + node1);
+
+        System.out.println("\nFinding non existent node..");
+        SNode node2 = sList.search(invalidSearch);  
+        System.out.println("Node (null if not found): " + node2);
+
+        System.out.println("\nClearing entire list: ");
         sList.clear(); 
         sList.print();
         System.out.println("\n");  
