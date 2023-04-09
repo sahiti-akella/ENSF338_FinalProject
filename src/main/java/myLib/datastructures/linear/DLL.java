@@ -125,6 +125,41 @@ public class DLL{
         }
     }
     
+    public void delete(DNode node) {
+        if (isEmpty()) {
+            return;
+        }
+        if (head == node) { // if node is the head
+            head = node.getNext();
+            if (head != null) {
+                head.setPrev(null);
+            }
+            size--;
+        } else if (tail == node) { // if node is the tail
+            tail = node.getPrev();
+            if (tail != null) {
+                tail.setNext(null);
+            }
+            size--;
+        } else { // if node is in the middle
+            DNode prev = node.getPrev();
+            DNode next = node.getNext();
+            if (prev != null) {
+                prev.setNext(next);
+            }
+            if (next != null) {
+                next.setPrev(prev);
+            }
+            size--;
+        }
+    
+        // update tail's next reference if the list is circular
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
+    }
+    
 
     public void print() {
         //System.out.println("List Length: " + size);
@@ -156,12 +191,15 @@ public class DLL{
         System.out.println("\nTESTING INSERTING, DELETING AND SORTING: ");  
 
         System.out.println("\nInserting nodes: ");  
+        DNode node = new DNode(4);
         dList.insertTail(new DNode(3));
         dList.insertTail(new DNode(2));
         dList.insertHead(new DNode(1));  
-        dList.insert(new DNode(4), 3);
+        dList.insert(node, 3);
         dList.deleteHead();
         dList.deleteTail();
+        dList.insertTail(new DNode(5));
+        dList.delete(node);
         dList.print();
     }
 }
