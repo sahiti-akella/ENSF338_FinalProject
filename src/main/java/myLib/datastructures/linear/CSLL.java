@@ -41,28 +41,6 @@ public class CSLL extends SLL {
     }
 
     @Override
-    public void insert(SNode node, int position) {
-        if (position < 1 || position > size + 1) {
-            throw new IndexOutOfBoundsException("Invalid position for insertion");
-        }
-        if (position == 1) {
-            insertHead(node);
-            tail.setNext(head); 
-        } else if (position == size + 1) {
-            insertTail(node);
-            tail.setNext(head); 
-        } else {
-            SNode current = head;
-            for (int i = 2; i < position; i++) {
-                current = current.getNext();
-            }
-            node.setNext(current.getNext());
-            current.setNext(node);
-            size++;
-        }
-    }
-    
-    @Override
     public void deleteHead() {
         if (size == 0) {
             return;
@@ -247,6 +225,12 @@ public class CSLL extends SLL {
 
         System.out.println("\nAdding nodes to specified position in the list: ");  
         csList.insert(new SNode(5), 3);  
+        csList.print();
+        System.out.println("Tail: " + csList.tail);
+        System.out.println("Tail next: " + csList.tail.getNext());
+
+        System.out.println("\nAdding nodes to specified position in the list: ");  
+        csList.insert(new SNode(10), 1);  
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
