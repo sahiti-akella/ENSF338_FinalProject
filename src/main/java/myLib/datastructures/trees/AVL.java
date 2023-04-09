@@ -22,23 +22,64 @@ public class AVL extends BST {
      }
 
      // Insert(int val)
-
+    @Override
     public void Insert(int val){
         super.Insert(val);
         this.root = balance(this.root); // To balance tree
     }
 
     // Insert(TNode node)
-
+    @Override
     public void Insert(TNode node){
         super.Insert(node);
         this.root = balance(this.root); // To balance tree
     }
 
     // Delete(int val)
-
+    @Override
     public void Delete(int val){
-       // Implement
+        this.root = deleteNode(this.root, val);
+    }
+
+    // Helper functions for Delete function
+
+    private TNode deleteNode(TNode node, int val) {
+        if (node == null) {
+            System.out.println("Value not found in the tree");
+            return null;
+        }
+    
+        if (val < node.getData()) {
+            node.setLeft(deleteNode(node.getLeft(), val));
+        } else if (val > node.getData()) {
+            node.setRight(deleteNode(node.getRight(), val));
+        } else {
+            if (node.getLeft() == null && node.getRight() == null) {
+                node = null;
+            } else if (node.getLeft() == null) {
+                node = node.getRight();
+            } else if (node.getRight() == null) {
+                node = node.getLeft();
+            } else {
+                TNode temp = findMin(node.getRight());
+                node.setData(temp.getData());
+                node.setRight(deleteNode(node.getRight(), temp.getData()));
+            }
+        }
+    
+        if (node != null) {
+            node = balance(node);
+        }
+    
+        return node;
+    }
+    
+    private TNode findMin(TNode node) {
+        if (node.getLeft() == null) {
+            return node;
+        } else {
+            return findMin(node.getLeft());
+        }
     }
 
     // TNode Search(int val)
