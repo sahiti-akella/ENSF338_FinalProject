@@ -86,6 +86,44 @@ public class DLL{
         }
     }
     
+    public void deleteHead() {
+        if (head != null) {
+            // If the head is the only node in the list, set both head and tail to null
+            if (head == tail) {
+                head = null;
+                tail = null;
+            } else {
+                head = head.getNext();
+                head.setPrev(null);
+                // If the list is circular, update the tail's next reference to the new head
+                if (tail != null && tail.getNext() != head) {
+                    tail.setNext(head);
+                    head.setPrev(tail);
+                }
+            }
+            size--;
+        }
+    }
+    
+    public void deleteTail() {
+        if (isEmpty()) {
+            return;
+        }
+        if (tail.getPrev() == null) {
+            // There is only one node in the list
+            head = null;
+            tail = null;
+        } else {
+            tail = tail.getPrev();
+            tail.setNext(null);
+        }
+        size--;
+        // If the list is circular, set the tail's next reference to the head
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
+    }
     
 
     public void print() {
@@ -122,6 +160,8 @@ public class DLL{
         dList.insertTail(new DNode(2));
         dList.insertHead(new DNode(1));  
         dList.insert(new DNode(4), 3);
+        dList.deleteHead();
+        dList.deleteTail();
         dList.print();
     }
 }
