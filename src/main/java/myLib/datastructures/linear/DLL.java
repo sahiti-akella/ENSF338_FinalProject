@@ -160,9 +160,34 @@ public class DLL{
         }
     }
     
+    public void clear() {
+        while (head != null) {
+            DNode next = head.getNext();
+            head.setPrev(null);
+            head.setNext(null);
+            head = next;
+        }
+        tail = null;
+        size = 0;
+    }
+
+    public DNode search(DNode node) {
+        DNode current = head;
+        while (current != null) {
+            if (current == node) {
+                return current;
+            }
+            current = current.getNext();
+            // If the list is circular and we have reached the head again, break the loop
+            if (current == head && tail != null && tail.getNext() == head) {
+                break;
+            }
+        }
+        return null;
+    }
 
     public void print() {
-        //System.out.println("List Length: " + size);
+        System.out.println("List Length: " + size);
         //System.out.println("Sorted: " + isSorted());
         System.out.print("List Content: ");
     
@@ -177,13 +202,13 @@ public class DLL{
             System.out.println();
         }
     }
-    
 
     // helper function
     public boolean isEmpty() {
         return head == null;
     }
 
+    // main testing
     public static void main(String[] args) {  
   
         DLL dList = new DLL();  
@@ -196,10 +221,16 @@ public class DLL{
         dList.insertTail(new DNode(2));
         dList.insertHead(new DNode(1));  
         dList.insert(node, 3);
+        
+        dList.print();
         dList.deleteHead();
         dList.deleteTail();
+        
+        DNode search = dList.search(node);  
+        System.out.println("Node (null if not found): " + search);
         dList.insertTail(new DNode(5));
         dList.delete(node);
+        dList.clear();
         dList.print();
     }
 }

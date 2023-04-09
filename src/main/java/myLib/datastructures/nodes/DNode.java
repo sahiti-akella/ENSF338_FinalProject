@@ -37,4 +37,9 @@ public class DNode {
     public void setNext(DNode next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(data);
+    }
 }
