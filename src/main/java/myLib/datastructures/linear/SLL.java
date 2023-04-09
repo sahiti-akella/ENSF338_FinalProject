@@ -81,11 +81,15 @@ public class SLL {
 
     public SNode search(SNode node){
         SNode current = head;
-        while (current != null) {
+        boolean isCircular = false;
+        while (current != null && !isCircular) {
             if (current.equals(node)) {
                 return current;
             }
             current = current.getNext();
+            if (current == head) {
+                isCircular = true;
+            }
         }
         return null;
     }
@@ -128,12 +132,12 @@ public class SLL {
             deleteHead();
             return;
         }
-        if (node.equals(node)) {
+        if (tail.equals(node)) {
             deleteTail();
             return;
         }
         SNode current = head;
-        while (current.getNext() != null && !current.getNext().equals(node)) {
+        while (current.getNext() != tail && !current.getNext().equals(node)) {
         current = current.getNext();
         }
         if (current.getNext() == null) {

@@ -75,21 +75,6 @@ public class CSLL extends SLL {
     }
 
     @Override
-    public SNode search(SNode node) {
-        if (head == null) {
-            return null;
-        }
-        SNode current = head;
-        do {
-            if (current.equals(node)) {
-                return current;
-            }
-            current = current.getNext();
-        } while (current != head);
-        return null;
-    }    
-
-    @Override
     public void print() {
         if (size == 0) {
             System.out.println("List is empty");
@@ -175,7 +160,6 @@ public class CSLL extends SLL {
         return true;
     }
     
-
     private void swap(SNode node1, SNode node2) {
         int temp = node1.getData();
         node1.setData(node2.getData());
@@ -225,12 +209,6 @@ public class CSLL extends SLL {
 
         System.out.println("\nAdding nodes to specified position in the list: ");  
         csList.insert(new SNode(5), 3);  
-        csList.print();
-        System.out.println("Tail: " + csList.tail);
-        System.out.println("Tail next: " + csList.tail.getNext());
-
-        System.out.println("\nAdding nodes to specified position in the list: ");  
-        csList.insert(new SNode(10), 1);  
         csList.print();
         System.out.println("Tail: " + csList.tail);
         System.out.println("Tail next: " + csList.tail.getNext());
