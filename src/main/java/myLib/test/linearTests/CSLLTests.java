@@ -28,14 +28,35 @@ public class CSLLTests {
         list.deleteHead();
         list.deleteTail();
         list.delete(list.search(node));
-        list.sort();
         list.print(); // should print "List content: 2 3 4 "
     
         // Test clear and print
         System.out.println("\nTesting clear and print, expected: List is empty ");
         list.clear();
         list.print(); // should print "List is empty"
-    
+
+        // Testing sort, checking if tail next is head
+        System.out.println("\nTesting sort, checking if tail next is head: ");
+        CSLL list2 = new CSLL(new SNode(5));
+        list2.insertHead(new SNode(4));
+        list2.insertHead(new SNode(2));
+        list2.insertHead(new SNode(3));
+        list2.insertHead(new SNode(1));
+        System.out.println("Before sort:");
+        list2.print(); // should print "List content: 1 3 2 4 5"
+        list2.sort();
+        System.out.println("After sort:");
+        list2.print(); // should print "List content: 1 2 3 4 5"
+        /* 
+        System.out.println("Tail: " + list.tail);
+        System.out.println("Tail next: " + list.tail.getNext());
+        */
+
+        // Test clear and print
+        System.out.println("\nTesting clear and print, expected: List is empty ");
+        list.clear();
+        list.print(); // should print "List is empty"
+
         // Test sortedInsert and sort, checking if tail next is head
         System.out.println("\nTesting sortedInsert and sort, checking if tail next is head, expected: 123456");
         list.sortedInsert(new SNode(6));

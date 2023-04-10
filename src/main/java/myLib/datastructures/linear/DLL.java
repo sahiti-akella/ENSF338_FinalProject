@@ -264,7 +264,7 @@ public class DLL{
         size++;
     }
     
-    private boolean isSorted() {
+    public boolean isSorted() {
         DNode current = head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
