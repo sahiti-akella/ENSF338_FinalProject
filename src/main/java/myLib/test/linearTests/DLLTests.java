@@ -47,7 +47,11 @@ public class DLLTests {
         list2.sort();
         System.out.println("After sort:");
         list2.print(); // should print "List content: 1 2 3 4 5"
-        
+        /* 
+        System.out.println("Tail: " + list.tail);
+        System.out.println("Tail next: " + list.tail.getPrev());
+        */
+
         // Test clear and print
         System.out.println("\nTesting clear and print, expected: List is empty ");
         list.clear();
