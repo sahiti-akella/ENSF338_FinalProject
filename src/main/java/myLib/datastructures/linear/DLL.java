@@ -208,7 +208,7 @@ public class DLL{
             return;
         }
         DNode current = head.getNext();
-        while (current != null) {
+        while (current != head) {
             DNode temp = current;
             while (temp.getPrev() != null && temp.getData() < temp.getPrev().getData()) {
                 DNode prev = temp.getPrev();
