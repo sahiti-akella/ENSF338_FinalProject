@@ -231,7 +231,7 @@ public class DLL{
             current = current.getNext();
         }
     }
-    
+
     public void sortedInsert(DNode node) {
         if (isEmpty()) {
             head = node;
@@ -275,7 +275,6 @@ public class DLL{
         return true;
     }
     
-
     // helper function
     public boolean isEmpty() {
         return head == null;
