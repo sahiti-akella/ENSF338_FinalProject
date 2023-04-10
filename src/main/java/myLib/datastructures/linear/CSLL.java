@@ -166,7 +166,6 @@ public class CSLL extends SLL {
         int temp = node1.getData();
         node1.setData(node2.getData());
         node2.setData(temp);
-<<<<<<< HEAD
     }
     
     // testing 
@@ -211,80 +210,4 @@ public class CSLL extends SLL {
         list.sortedInsert(new SNode(4));
         list.print(); // should print "List content: 1 2 3 4 5 6 "
     }
-    
-
-/* 
-    // testing functions
-    public static void main(String[] args) {  
-        CSLL csList = new CSLL();
-
-        SNode validSearch = new SNode(4);
-        SNode invalidSearch = new SNode(8);
-        SNode nodeToDelete = new SNode(7);
-
-        System.out.println("\nTESTING INSERTING, DELETING AND SORTING: ");  
-
-        System.out.println("\nInserting nodes to tail: 7 ");  
-        csList.insertTail(nodeToDelete);  
-        csList.print();
-  
-        System.out.println("\nInserting nodes to tail: 3 ");  
-        csList.insertTail(new SNode(3));  
-        csList.print();  
-  
-        System.out.println("\nInserting nodes to tail: 2 ");  
-        csList.insertTail(new SNode(2));  
-        csList.print();
-  
-        System.out.println("\nInserting nodes to tail: 9 ");  
-        csList.insertTail(new SNode(9));  
-        csList.print();
-
-        System.out.println("\nInserting nodes to head: 4 ");  
-        csList.insertHead(validSearch);  
-        csList.print();
-
-        System.out.println("\nSorted insert nodes: 6 ");  
-        csList.sortedInsert(new SNode(6));  
-        csList.print();
-
-        System.out.println("\nInserting nodes: 5 at position 3");  
-        csList.insert(new SNode(5), 3);  
-        csList.print();
-
-
-        System.out.println("\nDeleting head: ");
-        csList.deleteHead(); 
-        csList.print();
-
-        System.out.println("\nDeleting tail: ");
-        csList.deleteTail(); 
-        csList.print();
-        System.out.println("Tail: " + csList.tail);
-        System.out.println("Tail next: " + csList.tail.getNext());
-
-        System.out.println("\nDeleting node: 7");
-        csList.delete(nodeToDelete); 
-        csList.print();
-
-        System.out.println("\nTESTING SEARCHING AND CLEARING: ");  
-
-        System.out.println("\nFinding node 4 ..");
-        SNode node1 = csList.search(validSearch);  
-        System.out.println("Node (null if not found): " + node1);
-
-        System.out.println("\nFinding non existent node..");
-        SNode node2 = csList.search(invalidSearch);  
-        System.out.println("Node (null if not found): " + node2);
-
-        System.out.println("\nClearing list: ");
-        csList.clear(); 
-        csList.print();
-        System.out.println("\n");  
-
-    }  
-*/
-=======
-    } 
->>>>>>> fef67f0561dcc513bfe5def12ab776084a610922
 }
