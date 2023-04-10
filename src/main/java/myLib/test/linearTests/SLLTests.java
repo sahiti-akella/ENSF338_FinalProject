@@ -5,7 +5,7 @@ import main.java.myLib.datastructures.linear.*;
 
 public class SLLTests {
     public static void main(String[] args) {
-        CSLL list = new CSLL();
+        SLL list = new SLL();
 
         SNode node = new SNode(1);
     

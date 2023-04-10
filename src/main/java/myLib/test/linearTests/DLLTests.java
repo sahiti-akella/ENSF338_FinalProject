@@ -28,13 +28,13 @@ public class DLLTests {
         list.deleteHead();
         list.deleteTail();
         list.delete(list.search(node));
+        // list.sort(); this is supposed to sort but it doesnt for some reason?
         list.print(); // should print "List content: 3 4 2 "
     
         // Test clear and print
         System.out.println("\nTesting clear and print, expected: List is empty ");
         list.clear();
         list.print(); // should print "List is empty"
-    
         
         // Test sortedInsert and sort
         System.out.println("\nTesting sortedInsert and sort, expected: 123456");
