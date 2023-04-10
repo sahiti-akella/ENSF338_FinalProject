@@ -23,12 +23,13 @@ public class CSLLTests {
         list.insert(new SNode(6), 6);
         list.print(); // should print "List content: 5 3 4 1 2 6 "
     
-        // Test search, deleteHead, deleteTail, and delete
-        System.out.println("\nTesting search, deleteHead, deleteTail, and delete, expected: 342 ");
+        // Test sort, search, deleteHead, deleteTail, and delete
+        System.out.println("\nTesting sort, search, deleteHead, deleteTail, and delete, expected: 234 ");
         list.deleteHead();
         list.deleteTail();
         list.delete(list.search(node));
-        list.print(); // should print "List content: 3 4 2 "
+        list.sort();
+        list.print(); // should print "List content: 2 3 4 "
     
         // Test clear and print
         System.out.println("\nTesting clear and print, expected: List is empty ");
