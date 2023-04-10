@@ -36,8 +36,8 @@ public class CSLLTests {
         list.clear();
         list.print(); // should print "List is empty"
     
-        // Test sortedInsert and sort
-        System.out.println("\nTesting sortedInsert and sort, expected: 123456");
+        // Test sortedInsert and sort, checking if tail next is head
+        System.out.println("\nTesting sortedInsert and sort, checking if tail next is head, expected: 123456");
         list.sortedInsert(new SNode(6));
         list.sortedInsert(new SNode(1));
         list.sortedInsert(new SNode(3));
@@ -45,5 +45,7 @@ public class CSLLTests {
         list.sortedInsert(new SNode(5));
         list.sortedInsert(new SNode(4));
         list.print(); // should print "List content: 1 2 3 4 5 6 "
+        System.out.println("Tail: " + list.tail);
+        System.out.println("Tail next: " + list.tail.getNext());
     }
 }
