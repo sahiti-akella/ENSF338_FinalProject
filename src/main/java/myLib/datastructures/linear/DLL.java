@@ -186,33 +186,28 @@ public class DLL{
         return null;
     }
 
-    public void print() {
-        System.out.println("List Length: " + size);
-        //System.out.println("Sorted: " + isSorted());
-        System.out.print("List Content: ");
-    
-        if (isEmpty()) {
-            System.out.println("empty");
-        } else {
-            DNode curr = head;
-            do {
-                System.out.print(curr.getData() + " ");
-                curr = curr.getNext();
-            } while (curr != head);
-            System.out.println();
+    public void print(){
+        if (size == 0) {
+            System.out.println("List is empty");
+            return;
         }
+        boolean isCircular = (tail != null && tail.getNext() == head);
+        System.out.println("List length: " + size);
+        //System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.print("List content: ");
+        DNode current = head;
+        do {
+            System.out.print(current.getData() + " ");
+            current = current.getNext();
+        } while (isCircular ? current != head : current != null);
+        System.out.println();
     }
-
+    
     // helper function
     public boolean isEmpty() {
         return head == null;
     }
 
-    // main testing
-    public static void main(String[] args) {  
-  
-            
-        }  
-    }
+}
     
 
