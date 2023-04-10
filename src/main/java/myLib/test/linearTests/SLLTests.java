@@ -4,68 +4,45 @@ import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.linear.*;
 
 public class SLLTests {
-    public static void main(String[] args) {  
-  
-        SLL sList = new SLL();  
-        SNode validSearch = new SNode(4);
-        SNode invalidSearch = new SNode(8);
-        SNode nodeToDelete = new SNode(7);
+    public static void main(String[] args) {
+        CSLL list = new CSLL();
 
-        System.out.println("\nTESTING INSERTING, DELETING AND SORTING: ");  
-
-        System.out.println("\nInserting nodes to tail: ");  
-        sList.insertTail(nodeToDelete);  
-        sList.print();
-  
-        System.out.println("\nInserting nodes to tail: ");  
-        sList.insertTail(new SNode(3));  
-        sList.print();  
-  
-        System.out.println("\nInserting nodes to tail: ");  
-        sList.insertTail(new SNode(2));  
-        sList.print();
-  
-        System.out.println("\nInserting nodes to tail: ");  
-        sList.insertTail(new SNode(9));  
-        sList.print();
-
-        System.out.println("\nInserting nodes to head: ");  
-        sList.insertHead(validSearch);  
-        sList.print();
-
-        System.out.println("\nSorted insert node: ");  
-        sList.sortedInsert(new SNode(6));  
-        sList.print();
-
-        System.out.println("\nInserting nodes: ");  
-        sList.insert(new SNode(5), 3);  
-        sList.print();
-
-        System.out.println("\nDeleting node: ");
-        sList.delete(nodeToDelete); 
-        sList.print();
-
-        System.out.println("\nDeleting head: ");
-        sList.deleteHead(); 
-        sList.print();
-
-        System.out.println("\nDeleting tail: ");
-        sList.deleteTail(); 
-        sList.print();
-
-        System.out.println("\nTESTING SEARCHING AND CLEARING: ");  
-
-        System.out.println("\nFinding node..");
-        SNode node1 = sList.search(validSearch);  
-        System.out.println("Node (null if not found): " + node1);
-
-        System.out.println("\nFinding non existent node..");
-        SNode node2 = sList.search(invalidSearch);  
-        System.out.println("Node (null if not found): " + node2);
-
-        System.out.println("\nClearing list: ");
-        sList.clear(); 
-        sList.print();
-        System.out.println("\n");  
-    } 
+        SNode node = new SNode(1);
+    
+        // Test insertHead and insertTail
+        System.out.println("\nTesting insertHead and insertTail, expected: 312");
+        list.insertHead(node);
+        list.insertTail(new SNode(2));
+        list.insertHead(new SNode(3));
+        list.print(); // should print "List content: 3 1 2 "
+    
+        // Test insert
+        System.out.println("\nTesting insert, expected: 534126");
+        list.insert(new SNode(4), 2);
+        list.insert(new SNode(5), 1);
+        list.insert(new SNode(6), 6);
+        list.print(); // should print "List content: 5 3 4 1 2 6 "
+    
+        // Test search, deleteHead, deleteTail, and delete
+        System.out.println("\nTesting search, deleteHead, deleteTail, and delete, expected: 342 ");
+        list.deleteHead();
+        list.deleteTail();
+        list.delete(list.search(node));
+        list.print(); // should print "List content: 3 4 2 "
+    
+        // Test clear and print
+        System.out.println("\nTesting clear and print, expected: List is empty ");
+        list.clear();
+        list.print(); // should print "List is empty"
+    
+        // Test sortedInsert and sort
+        System.out.println("\nTesting sortedInsert and sort, expected: 123456");
+        list.sortedInsert(new SNode(6));
+        list.sortedInsert(new SNode(1));
+        list.sortedInsert(new SNode(3));
+        list.sortedInsert(new SNode(2));
+        list.sortedInsert(new SNode(5));
+        list.sortedInsert(new SNode(4));
+        list.print(); // should print "List content: 1 2 3 4 5 6 "
+    }
 }
