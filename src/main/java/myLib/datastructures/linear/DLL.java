@@ -211,26 +211,8 @@ public class DLL{
     // main testing
     public static void main(String[] args) {  
   
-        DLL dList = new DLL();  
-
-        System.out.println("\nTESTING INSERTING, DELETING AND SORTING: ");  
-
-        System.out.println("\nInserting nodes: ");  
-        DNode node = new DNode(4);
-        dList.insertTail(new DNode(3));
-        dList.insertTail(new DNode(2));
-        dList.insertHead(new DNode(1));  
-        dList.insert(node, 3);
-        
-        dList.print();
-        dList.deleteHead();
-        dList.deleteTail();
-        
-        DNode search = dList.search(node);  
-        System.out.println("Node (null if not found): " + search);
-        dList.insertTail(new DNode(5));
-        dList.delete(node);
-        dList.clear();
-        dList.print();
+            
+        }  
     }
-}
+    
+
