@@ -126,23 +126,26 @@ public class CSLL extends SLL {
         if (head == null || head.getNext() == head) {
             return;
         }
-    
+        boolean sorted;
         SNode current = head;
         do {
-            boolean sorted = true;
-            SNode temp = current.getNext();
-            while (temp != head && temp != current) {
-                if (current.getData() > temp.getData()) {
-                    swap(current, temp);
+            sorted = true;
+            SNode temp = current;
+            while (temp.getNext() != head) {
+                if (temp.getData() > temp.getNext().getData()) {
+                    swap(temp, temp.getNext());
                     sorted = false;
                 }
                 temp = temp.getNext();
             }
-            if (sorted) {
-                break;
-            }
             current = current.getNext();
-        } while (current != head);
+        } while (!sorted || current != head);
+    }
+    
+    private void swap(SNode node1, SNode node2) {
+        int temp = node1.getData();
+        node1.setData(node2.getData());
+        node2.setData(temp);
     }
     
     // helper functions
@@ -160,12 +163,6 @@ public class CSLL extends SLL {
             current = current.getNext();
         }
         return true;
-    }
-    
-    private void swap(SNode node1, SNode node2) {
-        int temp = node1.getData();
-        node1.setData(node2.getData());
-        node2.setData(temp);
     }
     
 }

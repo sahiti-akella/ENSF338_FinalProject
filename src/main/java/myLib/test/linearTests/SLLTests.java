@@ -24,13 +24,30 @@ public class SLLTests {
         list.print(); // should print "List content: 5 3 4 1 2 6 "
     
         // Test sort, search, deleteHead, deleteTail, and delete
-        System.out.println("\nTesting sort, search, deleteHead, deleteTail, and delete, expected: 234 ");
+        System.out.println("\nTesting sort, search, deleteHead, deleteTail, and delete, expected: 342 ");
         list.deleteHead();
         list.deleteTail();
         list.delete(list.search(node));
-        list.sort();
-        list.print(); // should print "List content: 2 3 4 "
+        list.print(); // should print "List content: 3 4 2"
     
+        // Test clear and print
+        System.out.println("\nTesting clear and print, expected: List is empty ");
+        list.clear();
+        list.print(); // should print "List is empty"
+
+        // Test sort 
+        System.out.println("\nTesting sort: ");
+        SLL list2 = new SLL(new SNode(5));
+        list2.insertHead(new SNode(4));
+        list2.insertHead(new SNode(2));
+        list2.insertHead(new SNode(3));
+        list2.insertHead(new SNode(1));
+        System.out.println("Before sort:");
+        list2.print(); // should print "List content: 1 3 2 4 5"
+        list2.sort();
+        System.out.println("After sort:");
+        list2.print(); // should print "List content: 1 2 3 4 5"
+        
         // Test clear and print
         System.out.println("\nTesting clear and print, expected: List is empty ");
         list.clear();
