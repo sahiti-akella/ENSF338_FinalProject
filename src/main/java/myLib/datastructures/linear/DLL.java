@@ -4,9 +4,9 @@ import main.java.myLib.datastructures.nodes.DNode;
 
 public class DLL{
     
-    private DNode head;
-    private DNode tail;
-    private int size;
+    protected DNode head;
+    public DNode tail;
+    protected int size;
 
     public DLL() {
         head = null;
