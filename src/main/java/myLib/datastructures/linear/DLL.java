@@ -193,7 +193,7 @@ public class DLL{
         }
         boolean isCircular = (tail != null && tail.getNext() == head);
         System.out.println("List length: " + size);
-        //System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
         DNode current = head;
         do {
@@ -203,6 +203,79 @@ public class DLL{
         System.out.println();
     }
     
+    public void sort() {
+        if (size <= 1) {
+            return;
+        }
+        DNode current = head.getNext();
+        while (current != null) {
+            DNode temp = current;
+            while (temp.getPrev() != null && temp.getData() < temp.getPrev().getData()) {
+                DNode prev = temp.getPrev();
+                DNode next = temp.getNext();
+                if (prev.getPrev() != null) {
+                    prev.getPrev().setNext(temp);
+                } else {
+                    head = temp;
+                }
+                temp.setPrev(prev.getPrev());
+                temp.setNext(prev);
+                prev.setPrev(temp);
+                prev.setNext(next);
+                if (next != null) {
+                    next.setPrev(prev);
+                } else {
+                    tail = prev;
+                }
+            }
+            current = current.getNext();
+        }
+    }
+    
+    public void sortedInsert(DNode node) {
+        if (isEmpty()) {
+            head = node;
+            tail = node;
+            size++;
+            return;
+        }
+        if (!isSorted()) {
+            sort();
+        }
+        DNode current = head;
+        while (current != null && current.getData() < node.getData()) {
+            current = current.getNext();
+        }
+        if (current == null) {
+            node.setPrev(tail);
+            tail.setNext(node);
+            tail = node;
+        } else if (current == head) {
+            node.setPrev(null);
+            node.setNext(head);
+            head.setPrev(node);
+            head = node;
+        } else {
+            node.setPrev(current.getPrev());
+            node.setNext(current);
+            current.getPrev().setNext(node);
+            current.setPrev(node);
+        }
+        size++;
+    }
+    
+    private boolean isSorted() {
+        DNode current = head;
+        while (current != null && current.getNext() != null) {
+            if (current.getData() > current.getNext().getData()) {
+                return false;
+            }
+            current = current.getNext();
+        }
+        return true;
+    }
+    
+
     // helper function
     public boolean isEmpty() {
         return head == null;

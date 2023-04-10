@@ -35,7 +35,7 @@ public class DLLTests {
         list.clear();
         list.print(); // should print "List is empty"
     
-        /* 
+        
         // Test sortedInsert and sort
         System.out.println("\nTesting sortedInsert and sort, expected: 123456");
         list.sortedInsert(new DNode(6));
@@ -45,6 +45,6 @@ public class DLLTests {
         list.sortedInsert(new DNode(5));
         list.sortedInsert(new DNode(4));
         list.print(); // should print "List content: 1 2 3 4 5 6 "
-        */
+        
     }
 }
