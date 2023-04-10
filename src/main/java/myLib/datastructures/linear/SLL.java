@@ -5,7 +5,7 @@ import main.java.myLib.datastructures.nodes.SNode;
 public class SLL {
 
     protected SNode head;
-    protected SNode tail;
+    public SNode tail;
     protected int size;
 
     public SLL() {
@@ -210,6 +210,7 @@ public class SLL {
         }
         return true;
     }
+<<<<<<< HEAD
 
     // testing
     public static void main(String[] args) {
@@ -324,6 +325,8 @@ public class SLL {
     }  
 */
 
+=======
+>>>>>>> fef67f0561dcc513bfe5def12ab776084a610922
 }  
     
 

@@ -166,6 +166,7 @@ public class CSLL extends SLL {
         int temp = node1.getData();
         node1.setData(node2.getData());
         node2.setData(temp);
+<<<<<<< HEAD
     }
     
     // testing 
@@ -283,4 +284,7 @@ public class CSLL extends SLL {
 
     }  
 */
+=======
+    } 
+>>>>>>> fef67f0561dcc513bfe5def12ab776084a610922
 }
