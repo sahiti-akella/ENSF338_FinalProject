@@ -31,7 +31,7 @@ public class SLL {
     public SLL(SNode head) {
         this.head = head;
         this.tail = head;
-        this.size = 1; // CHANGE TO INCREMENT
+        this.size = 1; 
     }
 
     /**

@@ -3,13 +3,23 @@ package main.java.myLib.test.linearTests;
 import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.linear.*;
 
+/**
+ * This class provides a set of tests for the CSLL class, which implements a
+ * circular singly linked list.
+ */
+
 public class CSLLTests {
+    /**
+     * The main method of this class runs a set of tests on the CSLL class.
+     * 
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         System.out.println("\nTESTING CIRCULAR SINGLY LINKED LIST: PREV SHOULD BE NULL AND TAIL NEXT SHOULD BE HEAD");
 
         CSLL list = new CSLL();
         SNode node = new SNode(1);
-    
+
         // Test insertHead and insertTail
         System.out.println("\n-----------Testing insertHead and insertTail, expected: 312");
         list.insertHead(node);
@@ -19,7 +29,7 @@ public class CSLLTests {
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
-    
+
         // Test insert
         System.out.println("\n-----------Testing insert, expected: 534126");
         list.insert(new SNode(4), 2);
@@ -29,25 +39,24 @@ public class CSLLTests {
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
-    
+
         // Test sort, search, deleteHead, deleteTail, and delete
         System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 342 ");
         list.deleteHead();
         list.deleteTail();
         System.out.println("Search node: " + list.search(node)); // should print "Search node: 1"
-        list.delete(list.search(node));
+        list.delete(node);
         list.print(); // should print "List content: 3 4 2"
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
-    
+
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
         list.clear();
         list.print(); // should print "List is empty"
 
-
-        // Test sort 
+        // Test sort
         System.out.println("\n-----------Testing sort: ");
         CSLL list2 = new CSLL(new SNode(5));
         list2.insertHead(new SNode(4));
@@ -62,12 +71,12 @@ public class CSLLTests {
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
-        
+
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
         list2.clear();
         list2.print(); // should print "List is empty"
-    
+
         // Test sortedInsert and sort
         System.out.println("\n-----------Testing sortedInsert, expected: 123456");
         list2.sortedInsert(new SNode(6));

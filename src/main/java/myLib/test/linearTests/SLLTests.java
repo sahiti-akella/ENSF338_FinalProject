@@ -47,7 +47,7 @@ public class SLLTests {
         list.deleteHead();
         list.deleteTail();
         System.out.println("Search node: " + list.search(node)); // should print "Search node: 1"
-        list.delete(list.search(node));
+        list.delete(node);
         list.print(); // should print "List content: 3 4 2"
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
