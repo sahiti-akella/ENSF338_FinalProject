@@ -31,6 +31,7 @@ public class DLL {
     public DLL(DNode node) {
         head = node;
         tail = node;
+        head.setPrev(tail);
         size = 1;
     }
 
@@ -104,11 +105,8 @@ public class DLL {
     }
 
     /**
-     * Deletes the head node of the linked list.
-     * If the head is the only node in the list, sets both head and tail to null.
-     * Otherwise, updates the head reference to the next node and sets the previous
-     * reference of the new head to null.
-     * Decrements the size of the linked list by 1.
+     * Deletes the head node of a doubly linked list.
+     * If the list is empty, no action is taken.
      */
     public void deleteHead() {
         if (head == null) {
