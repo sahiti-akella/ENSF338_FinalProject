@@ -4,18 +4,16 @@ import main.java.myLib.datastructures.nodes.DNode;
 
 public class CDLL extends DLL{
     public CDLL() {
-        super();
-        this.head = null;
-        this.tail = null;
+        head = null;
+        tail = null;
         size = 0;
     }
 
     public CDLL(DNode node) {
-        super(node);
-        this.head = node;
-        this.tail = node;
-        this.head.setPrev(this.tail);
-        this.tail.setNext(this.head);
+        head = node;
+        tail = node;
+        head.setPrev(tail);
+        tail.setNext(head);
         size = 1; 
     }
 

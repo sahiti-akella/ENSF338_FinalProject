@@ -28,9 +28,9 @@ public class SLL {
      * 
      * @param head the head node of the singly linked list.
      */
-    public SLL(SNode head) {
-        this.head = head;
-        this.tail = head;
+    public SLL(SNode node) {
+        this.head = node;
+        this.tail = node;
         this.size = 1; 
     }
 
