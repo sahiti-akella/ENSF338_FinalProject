@@ -20,6 +20,8 @@ public class CSLLTests {
         CSLL list = new CSLL();
         SNode node = new SNode(1);
 
+        // CSLL LIST
+
         // Test insertHead and insertTail
         System.out.println("\n-----------Testing insertHead and insertTail, expected: 312");
         list.insertHead(node);
@@ -55,6 +57,8 @@ public class CSLLTests {
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
         list.clear();
         list.print(); // should print "List is empty"
+
+        // CSLL LIST2
 
         // Test sort
         System.out.println("\n-----------Testing sort: ");

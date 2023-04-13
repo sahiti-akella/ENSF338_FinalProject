@@ -15,7 +15,9 @@ public class CSLL extends SLL {
      * Creates an empty circular singly linked list.
      */
     public CSLL() {
-        super();
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     /**
@@ -24,9 +26,11 @@ public class CSLL extends SLL {
      * 
      * @param head the first node in the circular linked list
      */
-    public CSLL(SNode head) {
-        super(head);
+    public CSLL(SNode node) {
+        head = node;
+        tail = node;
         tail.setNext(head);
+        size = 1; 
     }
 
     /**
