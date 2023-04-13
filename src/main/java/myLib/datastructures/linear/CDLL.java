@@ -122,7 +122,7 @@ public class CDLL extends DLL{
     
     @Override
     public void sortedInsert(DNode node) {
-        if (isEmpty()) {
+        if (head == null) {
             head = node;
             tail = node;
             head.setPrev(tail);

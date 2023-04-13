@@ -7,7 +7,7 @@ import main.java.myLib.datastructures.nodes.SNode;
  * list,
  * where each node in the list has a reference to the next node in the list, and
  * the last node has a reference to the first node in the list.
- * his class extends the SLL (Singly Linked List) class, which provides basic
+ * This class extends the SLL (Singly Linked List) class, which provides basic
  * linked list functionality.
  */
 public class CSLL extends SLL {
@@ -77,7 +77,8 @@ public class CSLL extends SLL {
      * Inserts a node at the specified position in the singly linked list.
      * 
      * @param node     the node to be inserted
-     * @param position the position where the node should be inserted (0-based)
+     * @param position the position at which the node should be inserted, 1-based index
+     * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
     public void insert(SNode node, int position) {
         super.insert(node, position);

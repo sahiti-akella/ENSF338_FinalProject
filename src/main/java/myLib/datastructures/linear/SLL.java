@@ -71,8 +71,8 @@ public class SLL {
      * If 5 inserted at position 2 of linked list 1234 = 15234
      * 
      * @param node     the node to be inserted
-     * @param position the position at which the node should be inserted
-     * @throws IndexOutOfBoundsException if the specified position is out of range
+     * @param position the position at which the node should be inserted, 1-based index
+     * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
     public void insert(SNode node, int position) {
         if (position < 1 || position > this.size + 1) {
@@ -287,6 +287,9 @@ public class SLL {
      *         false otherwise
      */
     protected boolean isSorted() {
+        if (this.head == null || this.size == 1) {
+            return true;
+        }
         SNode current = this.head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
