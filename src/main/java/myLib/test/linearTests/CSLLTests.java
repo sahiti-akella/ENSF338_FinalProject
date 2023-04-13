@@ -61,8 +61,13 @@ public class CSLLTests {
         // CSLL LIST2
 
         // Test sort
-        System.out.println("\n-----------Testing sort: ");
+        System.out.println("\n-----------Testing constructor and sort: ");
+        // Test constructor
         CSLL list2 = new CSLL(new SNode(5));
+        list2.print();
+        System.out.println("\nTail: " + list2.tail);
+        System.out.println("Tail prev: " + list2.tail.getPrev());
+        System.out.println("Tail next: " + list2.tail.getNext() + "\n");
         list2.insertHead(new SNode(4));
         list2.insertHead(new SNode(2));
         list2.insertHead(new SNode(3));
