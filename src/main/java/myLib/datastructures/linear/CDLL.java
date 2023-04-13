@@ -19,42 +19,79 @@ public class CDLL extends DLL{
         size = 1; 
     }
 
+    @Override
     public void insertHead(DNode node) {
         super.insertHead(node);
+        // If the list is circular, set the tail's next reference to the head
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
     }
 
+    @Override
     public void insertTail(DNode node) {
         super.insertTail(node);
+        // If the list is circular, set the tail's next reference to the head
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
     }
     
+    @Override
     public void insert(DNode node, int position) {
         super.insert(node, position);
+        // If the list is circular, set the tail's next reference to the head
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
     }
 
+    @Override
     public void deleteHead() {
         super.deleteHead();
+       // If the list is circular, set the tail's next reference to the head
+       if (tail != null && tail.getNext() != head) {
+        tail.setNext(head);
+        head.setPrev(tail);
+    }
     }
 
+    @Override
     public void deleteTail() {
         super.deleteTail();
-    }
-    
-    public void delete(DNode node) {
-       super.delete(node);
-    }
-    
-    public DNode search(DNode node) {
-       return super.search(node);
+        // If the list is circular, set the tail's next reference to the head
+        if (tail != null && tail.getNext() != head) {
+            tail.setNext(head);
+            head.setPrev(tail);
+        }
     }
 
-    public void print(){
-        super.print();
+    @Override
+    public void delete(DNode node) {
+       super.delete(node);
+       // update tail's next reference if the list is circular
+       if (tail != null && tail.getNext() != head) {
+        tail.setNext(head);
+        head.setPrev(tail);
+        }
     }
     
     public void clear(){
         super.clear();
     }
 
+    public DNode search(DNode node) {
+       return super.search(node);
+       
+    }
+
+    public void print(){
+        super.print();
+    }
+    
     @Override
     public void sort() {
         if (size <= 1) {

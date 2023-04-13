@@ -32,11 +32,7 @@ public class DLL{
             head.setPrev(node);
             head = node;
         }
-        // If the list is circular, set the tail's next reference to the head
-        if (tail != null && tail.getNext() != head) {
-            tail.setNext(head);
-            head.setPrev(tail);
-        }
+        
         size++;
     }
 
@@ -52,11 +48,7 @@ public class DLL{
             tail.setNext(node);
             tail = node;
         }
-        // If the list is circular, set the tail's next reference to the head
-        if (tail != null && tail.getNext() != head) {
-            tail.setNext(head);
-            head.setPrev(tail);
-        }
+        
         size++;
     }
     
@@ -78,11 +70,6 @@ public class DLL{
             current.getPrev().setNext(node);
             current.setPrev(node);
             size++;
-            // If the list is circular, set the tail's next reference to the head
-            if (tail != null && tail.getNext() != head) {
-                tail.setNext(head);
-                head.setPrev(tail);
-            }
         }
     }
     
@@ -95,11 +82,6 @@ public class DLL{
             } else {
                 head = head.getNext();
                 head.setPrev(null);
-                // If the list is circular, update the tail's next reference to the new head
-                if (tail != null && tail.getNext() != head) {
-                    tail.setNext(head);
-                    head.setPrev(tail);
-                }
             }
             size--;
         }
@@ -118,11 +100,6 @@ public class DLL{
             tail.setNext(null);
         }
         size--;
-        // If the list is circular, set the tail's next reference to the head
-        if (tail != null && tail.getNext() != head) {
-            tail.setNext(head);
-            head.setPrev(tail);
-        }
     }
     
     public void delete(DNode node) {
@@ -152,14 +129,8 @@ public class DLL{
             }
             size--;
         }
-    
-        // update tail's next reference if the list is circular
-        if (tail != null && tail.getNext() != head) {
-            tail.setNext(head);
-            head.setPrev(tail);
-        }
     }
-    
+      
     public void clear() {
         while (head != null) {
             DNode next = head.getNext();
@@ -208,27 +179,28 @@ public class DLL{
             return;
         }
         DNode current = head.getNext();
-        while (current != head) {
-            DNode temp = current;
-            while (temp.getPrev() != null && temp.getData() < temp.getPrev().getData()) {
-                DNode prev = temp.getPrev();
-                DNode next = temp.getNext();
-                if (prev.getPrev() != null) {
-                    prev.getPrev().setNext(temp);
+        while (current != null) {
+            DNode next = current.getNext();
+            while (current.getPrev() != null && current.getData() < current.getPrev().getData()) {
+                DNode prev = current.getPrev();
+                DNode prevPrev = prev.getPrev();
+                DNode currentNext = current.getNext();
+                prev.setNext(currentNext);
+                current.setNext(prev);
+                current.setPrev(prevPrev);
+                prev.setPrev(current);
+                if (prevPrev != null) {
+                    prevPrev.setNext(current);
                 } else {
-                    head = temp;
+                    head = current;
                 }
-                temp.setPrev(prev.getPrev());
-                temp.setNext(prev);
-                prev.setPrev(temp);
-                prev.setNext(next);
-                if (next != null) {
-                    next.setPrev(prev);
+                if (currentNext != null) {
+                    currentNext.setPrev(prev);
                 } else {
                     tail = prev;
                 }
             }
-            current = current.getNext();
+            current = next;
         }
     }
 

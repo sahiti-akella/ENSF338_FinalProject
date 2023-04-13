@@ -2,70 +2,108 @@ package main.java.myLib.datastructures.linear;
 
 import main.java.myLib.datastructures.nodes.SNode;
 
+/**
+ * The SLL class represents a singly linked list data structure.
+ * It contains a reference to the head node, tail node and the size of the
+ * linked list.
+ */
+
 public class SLL {
 
     protected SNode head;
     public SNode tail;
     protected int size;
 
+    /**
+     * Constructs an empty singly linked list.
+     */
     public SLL() {
-        head = null;
-        tail = null;
-        size = 0;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
+    /**
+     * Constructs a singly linked list with the given head node.
+     * 
+     * @param head the head node of the singly linked list.
+     */
     public SLL(SNode head) {
         this.head = head;
-        tail = head;
-        size = 1; // CHANGE TO INCREMENT
+        this.tail = head;
+        this.size = 1; // CHANGE TO INCREMENT
     }
 
+    /**
+     * Inserts a node at the head of the singly linked list.
+     * 
+     * @param node the node to be inserted.
+     */
     public void insertHead(SNode node) {
-       if (head == null) {
-        head = node;
-        tail = node;
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
         } else {
-            node.setNext(head);
-            head = node;
+            node.setNext(this.head);
+            this.head = node;
         }
-        size++;
+        this.size++;
     }
 
+    /**
+     * Inserts a node at the tail of the singly linked list.
+     * 
+     * @param node the node to be inserted.
+     */
     public void insertTail(SNode node) {
-      if (head == null) {
-        head = node;
-        tail = node;
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
         } else {
-            tail.setNext(node);
-            tail = node;
+            this.tail.setNext(node);
+            this.tail = node;
         }
-        size++;
+        this.size++;
     }
 
-    public void insert(SNode node, int position){
-        if (position < 1 || position > size + 1) {
+    /**
+     * Inserts a new node at the specified position in the linked list.
+     * If 5 inserted at position 2 of linked list 1234 = 15234
+     * 
+     * @param node     the node to be inserted
+     * @param position the position at which the node should be inserted
+     * @throws IndexOutOfBoundsException if the specified position is out of range
+     */
+    public void insert(SNode node, int position) {
+        if (position < 1 || position > this.size + 1) {
             throw new IndexOutOfBoundsException("Invalid position for insertion");
         }
         if (position == 1) {
             insertHead(node);
-        } else if (position == size + 1) {
+        } else if (position == this.size + 1) {
             insertTail(node);
         } else {
-            SNode current = head;
+            SNode current = this.head;
             for (int i = 2; i < position; i++) {
                 current = current.getNext();
             }
             node.setNext(current.getNext());
             current.setNext(node);
-            size++;
+            this.size++;
         }
     }
 
-    public void sortedInsert(SNode node){
-        if (head == null || node.getData() < head.getData()) {
+    /**
+     * Inserts a new node into the sorted singly linked list in ascending order.
+     * If the list is not sorted, it will first be sorted using the sort() method.
+     * 
+     * @param node the node to be inserted into the list
+     */
+    public void sortedInsert(SNode node) {
+        if (this.head == null || node.getData() < this.head.getData()) {
             insertHead(node);
         } else {
-            SNode current = head;
+            SNode current = this.head;
             while (current.getNext() != null && node.getData() > current.getNext().getData()) {
                 current = current.getNext();
             }
@@ -73,40 +111,38 @@ public class SLL {
             current.setNext(node);
             size++;
         }
-        
         if (!isSorted()) {
             sort();
         }
     }
 
-    public SNode search(SNode node){
-        SNode current = head;
+    /**
+     * Searches for a given node in the singly linked list, starting from the head.
+     * 
+     * @param node the node to search for in the list
+     * @return the node if found in the list, otherwise null
+     */
+    public SNode search(SNode node) {
+        SNode current = this.head;
         boolean isCircular = false;
         while (current != null && !isCircular) {
             if (current.equals(node)) {
                 return current;
             }
             current = current.getNext();
-            if (current == head) {
+            if (current == this.head) {
                 isCircular = true;
             }
         }
         return null;
     }
 
-    public void deleteHead(){
-        if (head == null) {
-            return;
-        }
-        head = head.getNext();
-        size--;
-        if (head == null) {
-            tail = null;
-        }
-    }
-
-    public void deleteTail(){
-        if (head == null) {
+    /**
+     * Removes the head node of this linked list. If the list is empty, this method
+     * does nothing.
+     */
+    public void deleteHead() {
+        if (this.head == null) {
             return;
         }
         if (head.getNext() == null) {
@@ -115,48 +151,76 @@ public class SLL {
             size = 0;
             return;
         }
-        SNode current = head;
-        while (current.getNext() != tail) {
+        this.head = this.head.getNext();
+        this.size--;
+    }
+
+    /**
+     * Removes the tail node of this linked list. If the list is empty, this method
+     * does nothing.
+     */
+    public void deleteTail() {
+        if (this.head == null) {
+            return;
+        }
+        if (head.getNext() == null) {
+            head = null;
+            tail = null;
+            size = 0;
+            return;
+        }
+        SNode current = this.head;
+        while (current.getNext() != this.tail) {
             current = current.getNext();
         }
         current.setNext(null);
-        tail = current;
-        size--;
+        this.tail = current;
+        this.size--;
     }
-    
-    public void delete(SNode node){
-        if (head == null) {
+
+    /**
+     * Deletes a given node from the linked list.
+     * 
+     * @param node the node to be deleted from the linked list.
+     */
+    public void delete(SNode node) {
+        if (this.head == null) {
             return;
         }
-        if (head.equals(node)) {
+        if (this.head.equals(node)) {
             deleteHead();
             return;
         }
-        if (tail.equals(node)) {
+        if (this.tail.equals(node)) {
             deleteTail();
             return;
         }
-        SNode current = head;
+        SNode current = this.head;
         while (current.getNext() != null && !current.getNext().equals(node)) {
-        current = current.getNext();
+            current = current.getNext();
         }
         if (current.getNext() == null) {
-        return;
+            return;
         }
         current.setNext(current.getNext().getNext());
         if (current.getNext() == null) {
-        tail = current;
+            this.tail = current;
         }
-        size--;
+        this.size--;
     }
 
-    public void sort(){
-        if (head == null || head.getNext() == null) {
+    /**
+     * Sorts the elements of the singly linked list in non-descending order using
+     * insertion sort algorithm.
+     * The sorting is performed in-place, so no new linked list is created.
+     */
+    public void sort() {
+        if (this.head == null || this.head.getNext() == null || this.isSorted()) {
             return;
         }
-        
+
         SNode newHead = null;
-        SNode current = head;
+        SNode current = this.head;
         while (current != null) {
             SNode next = current.getNext();
             if (newHead == null || current.getData() < newHead.getData()) {
@@ -172,36 +236,58 @@ public class SLL {
             }
             current = next;
         }
-        
+
         head = newHead;
     }
 
-    public void clear(){
-        head = null;
-        tail = null;
-        size = 0;
+    /**
+     * Removes all elements from this linked list.
+     * The head, tail, and size of the linked list are all set to null or 0.
+     */
+    public void clear() {
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
-    public void print(){
-        if (size == 0) {
+    /**
+     * Prints the contents of the linked list to the console.
+     * If the list is empty, the method prints "List is empty".
+     * Otherwise, the method prints the length of the list, the sorted status of the
+     * list, and the content of the list.
+     * The content of the list is printed as a space-separated sequence of elements.
+     * If the list is circular (i.e., the tail node's next pointer points to the
+     * head node), the method prints all elements
+     * of the list once, starting from the head node and stopping when the method
+     * reaches the head node again.
+     */
+    public void print() {
+        if (this.size == 0) {
             System.out.println("List is empty");
             return;
         }
-        boolean isCircular = (tail != null && tail.getNext() == head);
-        System.out.println("List length: " + size);
+        boolean isCircular = (this.tail != null && this.tail.getNext() == this.head);
+        System.out.println("List length: " + this.size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-        SNode current = head;
+        SNode current = this.head;
         do {
             System.out.print(current.getData() + " ");
             current = current.getNext();
-        } while (isCircular ? current != head : current != null);
+        } while (isCircular ? current != this.head : current != null);
         System.out.println();
     }
 
-    // helper functions
+    /**
+     * Checks whether the linked list is sorted in non-decreasing order.
+     * Returns true if the linked list is sorted in non-decreasing order,
+     * false otherwise.
+     *
+     * @return true if the linked list is sorted in non-decreasing order,
+     *         false otherwise
+     */
     protected boolean isSorted() {
-        SNode current = head;
+        SNode current = this.head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
                 return false;
@@ -210,6 +296,4 @@ public class SLL {
         }
         return true;
     }
-}  
-    
-
+}
