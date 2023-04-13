@@ -122,31 +122,27 @@ public class CSLL extends SLL {
     }    
 
     @Override
-    public void sort() {
-        if (head == null || head.getNext() == head) {
+    public void sort(){
+        if(head == null || head == tail){
             return;
-        }
-        boolean sorted;
-        SNode current = head;
-        do {
-            sorted = true;
-            SNode temp = current;
-            while (temp.getNext() != head) {
-                if (temp.getData() > temp.getNext().getData()) {
-                    swap(temp, temp.getNext());
-                    sorted = false;
+        }else{
+            boolean swapped = true;
+            while(swapped){
+                swapped = false;
+                SNode current = head;
+                while(current.getNext() != head){
+                    if(current.getData() > current.getNext().getData()){
+                        int temp = current.getData();
+                        current.setData(current.getNext().getData());
+                        current.getNext().setData(temp);
+                        swapped = true;
+                    }
+                    current = current.getNext();
                 }
-                temp = temp.getNext();
             }
-            current = current.getNext();
-        } while (!sorted || current != head);
+        }
     }
     
-    private void swap(SNode node1, SNode node2) {
-        int temp = node1.getData();
-        node1.setData(node2.getData());
-        node2.setData(temp);
-    }
     
     // helper functions
     @Override
