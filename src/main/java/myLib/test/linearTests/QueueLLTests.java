@@ -30,7 +30,7 @@ public class QueueLLTests {
         printQueue(queue);
 
         // clear the queue
-        queue.clear();
+        queue.Clear();
 
         // print the queue
         System.out.print("Queue: ");

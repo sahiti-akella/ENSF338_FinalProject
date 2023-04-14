@@ -28,7 +28,7 @@ public class StackLL extends SLL {
      * @param node the SNode to add to the stack
      */
     public void push(SNode<Integer> node) {
-        super.insertHead(node);
+        super.InsertHead(node);
     }
 
      /**
@@ -38,7 +38,7 @@ public class StackLL extends SLL {
     public SNode<Integer> pop() {
         SNode<Integer> node = head;
         if (head != null) {
-            super.deleteHead();
+            super.DeleteHead();
         }
         return node;
     }
@@ -57,14 +57,14 @@ public class StackLL extends SLL {
      * @param node the SNode to add to the list
      */
     @Override
-    public void insertHead(SNode<Integer> node) {}
+    public void InsertHead(SNode<Integer> node) {}
 
      /**
      * No functionality in StackLL
      * @param node the SNode to add to the list
      */
     @Override
-    public void insertTail(SNode<Integer> node) {}
+    public void InsertTail(SNode<Integer> node) {}
 
      /**
      * No functionality in StackLL
@@ -72,21 +72,21 @@ public class StackLL extends SLL {
      * @param position the SNode to add to the stack
      */
     @Override
-    public void insert(SNode<Integer> node, int position) {}
+    public void Insert(SNode<Integer> node, int position) {}
 
      /**
      * No functionality in StackLL
      * @param node the SNode to add to the list
      */
     @Override
-    public void sortedInsert(SNode<Integer> node) {}
+    public void SortedInsert(SNode<Integer> node) {}
 
      /**
      * Searches for given node in stack
      * @param node Returns node if found, else returns null
      */
     @Override
-    public SNode<Integer> search(SNode<Integer> node) {
+    public SNode<Integer> Search(SNode<Integer> node) {
         SNode<Integer> currentNode = this.head;
         while (currentNode != null) {
             if (currentNode == node) {
@@ -101,40 +101,40 @@ public class StackLL extends SLL {
      * No functionality in StackLL
      */
     @Override
-    public void deleteHead() {}
+    public void DeleteHead() {}
 
     /**
      * No functionality in StackLL
      */
     @Override
-    public void deleteTail() {}
+    public void DeleteTail() {}
 
      /**
      * No functionality in StackLL
      * @param node the SNode to add to the list
      */
     @Override
-    public void delete(SNode<Integer> node) {}
+    public void Delete(SNode<Integer> node) {}
 
     /**
      * No functionality in StackLL
      */
     @Override
-    public void sort() {}
+    public void Sort() {}
 
     /**
      * Clears the stack
      */
     @Override
-    public void clear() {
-        super.clear();
+    public void Clear() {
+        super.Clear();
     }
     
     /**
      * Overrided print function
      */
     @Override
-    public void print() {
+    public void Print() {
         SNode<Integer> current = head;
         System.out.print("Stack: ");
         while (current != null) {
