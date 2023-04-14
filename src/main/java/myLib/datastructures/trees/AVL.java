@@ -5,7 +5,7 @@ import main.java.myLib.datastructures.nodes.TNode;
 public class AVL extends BST {
     
      
-     private TNode root;
+    private TNode root;
 
     /**
     * Default constructor
@@ -108,14 +108,7 @@ public class AVL extends BST {
         }
     }
 
-    /**
-    * Search function to find element in tree
-    * @param val
-    */
-    public TNode Search(int val){
-       return super.Search(val);
-    }
-
+   
 
     /**
     * Helper function

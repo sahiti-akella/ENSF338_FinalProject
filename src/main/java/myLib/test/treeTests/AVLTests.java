@@ -33,8 +33,7 @@ public class AVLTests {
         System.out.println("\nPrinting in Breadth First Order:");
         balancedTree.printBF();
 
-        System.out.println("Deleting 9 from tree...");
-        avl.Delete(9);
+        avl.Delete(14);
 
         TNode nodetosearch = avl.Search(40);
         if (nodetosearch  != null) {
