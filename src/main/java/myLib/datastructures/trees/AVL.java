@@ -4,55 +4,73 @@ import main.java.myLib.datastructures.nodes.TNode;
 
 public class AVL extends BST {
     
-     // Member Variables
+     
      private TNode root;
 
-     // Default Constructor
+    /**
+    * Default constructor
+    */
      public AVL() {
-         this.root = null;
+         super();
      }
  
-     // Overload Constructors
+    /**
+    * Overloaded constructor
+    * @param val
+    */
      public AVL(int val){
-        this.root = new TNode(val, 0, null, null, null);
+        super(val);
      }
 
+    /**
+    * Overloaded constructor
+    * @param obj
+    */
      public AVL(TNode obj){
-        this.root = obj;
-
-        if (obj.getLeft() != null || obj.getRight() != null) {
-            this.root = balance(obj);
-        }
+        super(obj);
+        this.root = balance(obj);
      }
 
-     // Insert(int val)
+    /**
+    * Overrided insert
+    * @param val
+    */
     @Override
     public void Insert(int val){
         super.Insert(val);
-        this.root = balance(this.root); // To balance tree
+        this.root = balance(this.root);
     }
 
-    // Insert(TNode node)
+    /**
+    * Overrided insert
+    * @param node
+    */
     @Override
     public void Insert(TNode node){
         super.Insert(node);
-        this.root = balance(this.root); // To balance tree
+        this.root = balance(this.root);
     }
 
-    // Delete(int val)
+    /**
+    * Overrided delete
+    * @param val
+    */
     @Override
     public void Delete(int val){
         this.root = deleteNode(this.root, val);
     }
 
-    // Helper functions for Delete function
-
+    /**
+    * Helper function
+    * @param node 
+    * @param val
+    */
     private TNode deleteNode(TNode node, int val) {
         if (node == null) {
             System.out.println("Value not found in the tree");
             return null;
         }
-    
+
         if (val < node.getData()) {
             node.setLeft(deleteNode(node.getLeft(), val));
         } else if (val > node.getData()) {
@@ -70,14 +88,18 @@ public class AVL extends BST {
                 node.setRight(deleteNode(node.getRight(), temp.getData()));
             }
         }
-    
+
         if (node != null) {
             node = balance(node);
         }
-    
+
         return node;
     }
     
+    /**
+    * Helper function
+    * @param node 
+    */
     private TNode findMin(TNode node) {
         if (node.getLeft() == null) {
             return node;
@@ -86,25 +108,19 @@ public class AVL extends BST {
         }
     }
 
-    // TNode Search(int val)
-
+    /**
+    * Search function to find element in tree
+    * @param val
+    */
     public TNode Search(int val){
        return super.Search(val);
     }
 
-    // printInOrder
 
-    public void printInOrder(){
-       super.printInOrder(root);
-    }
-
-     // printBF
-
-     public void printBF(){
-        super.printBF();
-    }
-
-     // Helper methods
+    /**
+    * Helper function
+    * @param node 
+    */
      private TNode balance(TNode node) {
         int balanceFactor = getBalanceFactor(node);
         if (balanceFactor > 1) {
@@ -125,28 +141,51 @@ public class AVL extends BST {
         return node;
     }
 
+    /**
+    * Helper function
+    * @param node 
+    */
     private int getBalanceFactor(TNode node) {
-        return getHeight(node.getLeft()) - getHeight(node.getRight());
+        if (node == null) {
+            return 0;
+        }
+        return getHeight(node.left) - getHeight(node.right);
     }
 
+    /**
+    * Helper function
+    * @param node 
+    */
     private int getHeight(TNode node) {
         if (node == null) {
-            return -1;
+            return 0;
         }
-        return 1 + Math.max(getHeight(node.getLeft()), getHeight(node.getRight()));
+        return 1 + Math.max(getHeight(node.left), getHeight(node.right));
     }
 
+    /**
+    * Helper function
+    * @param node 
+    */
     private TNode rotateLeft(TNode node) {
-        TNode newRoot = node.getRight();
-        node.setRight(newRoot.getLeft());
-        newRoot.setLeft(node);
+        TNode newRoot = node.right;
+        node.right = newRoot.left;
+        newRoot.left = node;
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
         return newRoot;
     }
 
+    /**
+    * Helper function
+    * @param node 
+    */
     private TNode rotateRight(TNode node) {
-        TNode newRoot = node.getLeft();
-        node.setLeft(newRoot.getRight());
-        newRoot.setRight(node);
+        TNode newRoot = node.left;
+        node.left = newRoot.right;
+        newRoot.right = node;
+        node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+        newRoot.height = Math.max(getHeight(newRoot.left), getHeight(newRoot.right)) + 1;
         return newRoot;
     }
 }

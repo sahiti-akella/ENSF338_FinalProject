@@ -5,51 +5,49 @@ import main.java.myLib.datastructures.trees.*;
 
 public class AVLTests {
     public static void main(String[] args) {
+       
+        AVL avl = new AVL(30);
 
-        AVL avlTree = new AVL();
+        // insert some nodes into the tree
+        avl.Insert(9);
+        avl.Insert(20);
+        avl.Insert(79);
+        avl.Insert(5);
+        avl.Insert(16);
+        avl.Insert(8);
 
-        // Insert elements into the AVL tree
-        avlTree.Insert(8);
-        avlTree.Insert(6);
-        avlTree.Insert(9);
-        avlTree.Insert(5);
-        avlTree.Insert(7);
+        
+        System.out.println("\nPrinting in Breadth First Order:");
+        avl.printBF();
 
-        // Print the inorder traversal of the AVL tree
-        System.out.println("Inorder Traversal of AVL Tree:");
-        avlTree.printInOrder(); // Should print "5 6 7 8 9"
+        TNode node = new TNode(50);
+        node.setLeft(new TNode(30));
+        node.getLeft().setLeft(new TNode(20));
+        node.getLeft().setRight(new TNode(40));
+        node.setRight(new TNode(70));
+        node.getRight().setLeft(new TNode(60));
+        node.getRight().setRight(new TNode(80));
 
-        // Print the breadth-first traversal of the AVL tree
-        System.out.println("Breadth-First Traversal of AVL Tree:");
-        avlTree.printBF(); // Should print "8 6 9 5 7"
+        AVL balancedTree = new AVL(node);
+   
+        System.out.println("\nPrinting in Breadth First Order:");
+        balancedTree.printBF();
 
-        // Search for a value in the AVL tree
-        System.out.println("Search for 6 in AVL Tree:");
-        TNode node = avlTree.Search(6);
-        if (node != null) {
-            System.out.println("Node found in AVL Tree: " + node.getData());
+        System.out.println("Deleting 9 from tree...");
+        avl.Delete(9);
+
+        TNode nodetosearch = avl.Search(40);
+        if (nodetosearch  != null) {
+            System.out.println("\nSearch for 40: \n" + nodetosearch.data + " was found in the tree");
         } else {
-            System.out.println("Node not found in AVL Tree");
+            System.out.println("Value not found in tree");
         }
 
-        // Delete a value from the AVL tree
-        System.out.println("Delete 8 from AVL Tree:");
-        avlTree.Delete(8);
-
-        // Print the inorder traversal of the AVL tree after deletion
-        System.out.println("Inorder Traversal of AVL Tree after deletion:");
-        avlTree.printInOrder(); // Should print "5 6 7 9"
-
-        // Print the breadth-first traversal of the AVL tree after deletion
-        System.out.println("Breadth-First Traversal of AVL Tree after deletion:");
-        avlTree.printBF(); // Should print "6 9 5 7"
-
-        // Insert a node with value 4 into the AVL tree
-        TNode newNode = new TNode(4, 0, null, null, null);
-        avlTree.Insert(newNode);
-
-        // Print the inorder traversal of the AVL tree after insertion
-        System.out.println("Inorder Traversal of AVL Tree after insertion:");
-        avlTree.printInOrder(); // Should print "4 5 6 7 9"
+        TNode nodetosearch2 = avl.Search(79);
+        if (nodetosearch2  != null) {
+            System.out.println("\nSearch for 79: \n" + nodetosearch2.data + " was found in the tree");
+        } else {
+            System.out.println("Value not found in tree");
+        }
     }
 }

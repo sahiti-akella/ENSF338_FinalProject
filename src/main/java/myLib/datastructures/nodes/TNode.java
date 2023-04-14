@@ -3,15 +3,25 @@ package main.java.myLib.datastructures.nodes;
 public class TNode {
     
     // Member Variables
-    private int data;
-    private TNode left;
-    private TNode right;
+    public int data;
+    public TNode left;
+    public TNode right;
     private TNode parent;
     private int balance;
+    public int height;
 
     // Default Constructor
     public TNode() {
         this.data = 0;
+        this.left = null;
+        this.right = null;
+        this.parent = null;
+        this.balance = 0;
+    }
+
+    // Overload Constructor
+    public TNode(int data){
+        this.data = data;
         this.left = null;
         this.right = null;
         this.parent = null;

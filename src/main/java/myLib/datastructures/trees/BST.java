@@ -10,7 +10,7 @@ import main.java.myLib.datastructures.nodes.TNode;
 
 public class BST {
   
-   private TNode root;
+   protected TNode root;
 
    /**
     * Default constructor initializing root to null
