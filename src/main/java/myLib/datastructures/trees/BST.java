@@ -4,51 +4,77 @@ import java.util.*;
 
 import main.java.myLib.datastructures.nodes.TNode;
 
+/**
+ * This class is the implementation of the Binary Search Tree (BST) for integer data.
+ */
+
 public class BST {
   
-   // Member Variables
    private TNode root;
 
-   // Default Constructor
+   /**
+    * Default constructor initializing root to null
+    */
    public BST() {
        this.root = null;
    }
 
-   // Overload Constructors
+   /**
+    * Overload constructor
+    * @param val Value
+    * @param 0 0 
+    * @param null Sets parent to null
+    * @param null Sets left to null
+    * @param null Sets right to null
+    */
    public BST(int val){
        this.root = new TNode(val, 0, null, null, null);
    }
 
+   /**
+    * Overload constructor
+    * @param obj To be set to root
+    */
    public BST(TNode obj){
        this.root = obj;
    }
 
-   // Getters and Setters
-
+    /**
+    * Gettter
+    * @return Returns root
+    */
    public TNode getRoot() {
        return this.root;
    }
 
+   /**
+    * Setter
+    * @param root Sets root
+    */
    public void setRoot(TNode root) {
        this.root = root;
    }
 
-   // Insert(int val)
-
+    /**
+    * Insert node with argument value
+    * @param val Value to be inserted
+    */
    public void Insert(int val){
        TNode node = new TNode(val, 0, null, null, null);
        Insert(node);
    }
 
-   // Insert(TNode node)
-
+    /**
+    * Inserts specified node
+    * @param node Node be inserted to the tree
+    */
    public void Insert(TNode node){
        if (this.root == null) {
            this.root = node;
        }
        else{
            TNode current = this.root;
-       TNode parent = null;
+            TNode parent;
        while (true) {
            parent = current;
            if (node.getData() < current.getData()) {
@@ -68,11 +94,12 @@ public class BST {
            }
        }
        }
-      
    }
 
-   // Delete(int val)
-
+    /**
+    * Deletes argument value from tree
+    * @param val Value to be deleted
+    */
    public void Delete(int val){
     TNode node = Search(val);
     if (node == null) {
@@ -126,8 +153,11 @@ public class BST {
     }
    }
 
-   // Helper function
-
+    /**
+    * Helper function
+    * @param node argument node to check right and left sides of node
+    * @return Returns successor node
+    */
    private TNode getSuccessor(TNode node) {
     TNode current = node.getRight();
     while (current.getLeft() != null) {
@@ -136,10 +166,11 @@ public class BST {
     return current;
 }
 
-
-   // TNode Search(int val)
-
-
+    /**
+    * Searches for argument node in tree
+    * @param val Value to be searched for
+    * @return Returns outcome of search - more in tests
+    */
    public TNode Search(int val){
     TNode current = this.root;
     while (current != null) {
@@ -154,8 +185,10 @@ public class BST {
     return null;
    }
 
-   // printInOrder
-
+    /**
+    * Prints tree elements in ascending order
+    * @param node Checks if node is null or else prints left and right elements
+    */
    public void printInOrder(TNode node){
     if (node == null) {
         return;
@@ -165,13 +198,14 @@ public class BST {
     printInOrder(node.getRight());
    }
 
-    // printBF
-
+    /**
+    * Prints tree elements in breadth-first order
+    */
     public void printBF(){
         if (this.root == null) {
             return;
         }
-        Queue<TNode> queue = new LinkedList<TNode>();
+        Queue<TNode> queue = new LinkedList<>();
         queue.add(this.root);
         while (!queue.isEmpty()) {
             int size = queue.size();
