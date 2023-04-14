@@ -1,6 +1,6 @@
-package main.java.myLib.datastructures.linear;
+package myLib.datastructures.linear;
 
-import main.java.myLib.datastructures.nodes.DNode;
+import myLib.datastructures.nodes.DNode;
 
 /**
  * The DLL class represents a doubly linked list data structure.

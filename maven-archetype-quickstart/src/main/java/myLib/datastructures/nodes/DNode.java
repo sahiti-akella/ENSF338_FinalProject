@@ -1,4 +1,4 @@
-package main.java.myLib.datastructures.nodes;
+package myLib.datastructures.nodes;
 
 public class DNode<T>  {
     

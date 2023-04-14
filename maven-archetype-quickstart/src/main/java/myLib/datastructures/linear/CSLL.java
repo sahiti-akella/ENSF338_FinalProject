@@ -1,6 +1,6 @@
-package main.java.myLib.datastructures.linear;
+package myLib.datastructures.linear;
 
-import main.java.myLib.datastructures.nodes.SNode;
+import myLib.datastructures.nodes.SNode;
 
 /**
  * The CSLL (Circular Singly Linked List) class represents a circular linked

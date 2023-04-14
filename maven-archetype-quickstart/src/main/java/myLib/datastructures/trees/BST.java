@@ -1,8 +1,8 @@
-package main.java.myLib.datastructures.trees;
+package myLib.datastructures.trees;
 
 import java.util.*;
 
-import main.java.myLib.datastructures.nodes.TNode;
+import myLib.datastructures.nodes.TNode;
 
 /**
  * This class is the implementation of the Binary Search Tree (BST) for integer data.

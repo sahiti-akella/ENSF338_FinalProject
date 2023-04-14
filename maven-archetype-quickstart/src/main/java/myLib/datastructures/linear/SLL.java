@@ -1,6 +1,6 @@
-package main.java.myLib.datastructures.linear;
+package myLib.datastructures.linear;
 
-import main.java.myLib.datastructures.nodes.SNode;
+import myLib.datastructures.nodes.SNode;
 
 /**
  * The SLL class represents a singly linked list data structure.

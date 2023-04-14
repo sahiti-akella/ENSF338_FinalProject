@@ -1,7 +1,7 @@
-package main.java.myLib.test.linearTests;
+package linearTests;
 
-import main.java.myLib.datastructures.linear.QueueLL;
-import main.java.myLib.datastructures.nodes.SNode;
+import myLib.datastructures.linear.QueueLL;
+import myLib.datastructures.nodes.SNode;
 
 public class QueueLLTests {
 

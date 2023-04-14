@@ -1,7 +1,7 @@
-package main.java.myLib.test.linearTests;
+package linearTests;
 
-import main.java.myLib.datastructures.nodes.*;
-import main.java.myLib.datastructures.linear.*;
+import myLib.datastructures.nodes.*;
+import myLib.datastructures.linear.*;
 
 public class StackLLTests {
 

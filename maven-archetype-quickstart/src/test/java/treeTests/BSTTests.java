@@ -1,7 +1,7 @@
-package main.java.myLib.test.treeTests;
+package treeTests;
 
-import main.java.myLib.datastructures.nodes.*;
-import main.java.myLib.datastructures.trees.*;
+import myLib.datastructures.nodes.*;
+import myLib.datastructures.trees.*;
 
 public class BSTTests {
     public static void main(String[] args) {
