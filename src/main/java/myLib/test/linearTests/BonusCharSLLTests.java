@@ -24,6 +24,7 @@ public class BonusCharSLLTests {
         // SLL LIST
 
         // Test insertHead and insertTail
+        System.out.println("\n\n---LIST 1---");
         System.out.println("\n-----------Testing insertHead and insertTail, expected: c a b");
         list.InsertHead(node);
         list.InsertTail(new SNode<Character>('b'));
@@ -63,6 +64,7 @@ public class BonusCharSLLTests {
         // SLL LIST2
 
         // Test sort
+        System.out.println("\n\n---LIST 2---");
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
         BonusCharSLL list2 = new BonusCharSLL(new SNode<Character>('e'));

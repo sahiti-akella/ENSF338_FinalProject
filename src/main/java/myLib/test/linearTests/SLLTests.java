@@ -24,6 +24,7 @@ public class SLLTests {
         // SLL LIST
 
         // Test insertHead and insertTail
+        System.out.println("\n\n---LIST 1---");
         System.out.println("\n-----------Testing insertHead and insertTail, expected: 3 1 2");
         list.InsertHead(node);
         list.InsertTail(new SNode<Integer>(2));
@@ -62,6 +63,7 @@ public class SLLTests {
         // SLL LIST2
 
         // Test sort
+        System.out.println("\n\n---LIST 2---");
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
         SLL list2 = new SLL(new SNode<Integer>(5));

@@ -24,6 +24,7 @@ import main.java.myLib.datastructures.linear.*;
         // SLL LIST
 
         // Test insertHead and insertTail
+        System.out.println("\n\n---LIST 1---");
         System.out.println("\n-----------Testing insertHead and insertTail, expected: 3.0 1.0 2.0");
         list.InsertHead(node);
         list.InsertTail(new DNode<Double>(2.0));
@@ -62,6 +63,7 @@ import main.java.myLib.datastructures.linear.*;
         // SLL LIST2
 
         // Test sort
+        System.out.println("\n\n---LIST 2---");
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
         BonusDoubleDLL list2 = new BonusDoubleDLL(new DNode<Double>(5.0));
