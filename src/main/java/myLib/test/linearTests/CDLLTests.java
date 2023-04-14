@@ -16,6 +16,7 @@ import main.java.myLib.datastructures.linear.*;
     public static void main(String[] args) {
         System.out.println("\nTESTING CIRCULAR DOUBLY LINKED LIST: PREV SHOULD NOT BE NULL AND TAIL NEXT SHOULD NOT BE NULL");
 
+        // Empty constructor
         CDLL list = new CDLL();
         DNode node = new DNode(1);
 

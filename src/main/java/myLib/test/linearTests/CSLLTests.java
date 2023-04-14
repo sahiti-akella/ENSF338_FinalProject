@@ -17,6 +17,7 @@ public class CSLLTests {
     public static void main(String[] args) {
         System.out.println("\nTESTING CIRCULAR SINGLY LINKED LIST: PREV SHOULD BE NULL AND TAIL NEXT SHOULD BE HEAD");
 
+        // Empty constructor
         CSLL list = new CSLL();
         SNode node = new SNode(1);
 

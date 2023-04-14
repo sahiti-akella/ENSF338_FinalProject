@@ -17,6 +17,7 @@ import main.java.myLib.datastructures.linear.*;
     public static void main(String[] args) {
         System.out.println("\nTESTING DOUBLY LINKED LIST: PREV SHOULD NOT BE NULL AND TAIL NEXT SHOULD BE NULL");
 
+        // Empty constructor
         DLL list = new DLL();
         DNode node = new DNode(1);
 
