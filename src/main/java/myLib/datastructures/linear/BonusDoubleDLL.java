@@ -38,9 +38,9 @@ public class BonusDoubleDLL {
     /**
      * Inserts the given node at the head of the doubly linked list.
      * 
-     * @param node the node to be inserted
+     * @param node the node to be Inserted
      */
-    public void insertHead(DNode<Double> node) {
+    public void InsertHead(DNode<Double> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -58,9 +58,9 @@ public class BonusDoubleDLL {
     /**
      * Inserts the given node at the tail of the doubly linked list.
      * 
-     * @param node the node to be inserted
+     * @param node the node to be Inserted
      */
-    public void insertTail(DNode<Double> node) {
+    public void InsertTail(DNode<Double> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -78,19 +78,19 @@ public class BonusDoubleDLL {
     /**
      * Inserts a given node at a specific position in the Doubly Linked List.
      * 
-     * @param node     the node to be inserted
-     * @param position the position where the node should be inserted, 1-based index
+     * @param node     the node to be Inserted
+     * @param position the position where the node should be Inserted, 1-based index
      * @throws IllegalArgumentException if the position is less than 1 or greater
      *                                  than the size of the list + 1
      */
-    public void insert(DNode<Double> node, int position) {
+    public void Insert(DNode<Double> node, int position) {
         if (position < 1 || position > this.size + 1) {
             throw new IllegalArgumentException("Invalid position");
         }
         if (position == 1) {
-            insertHead(node);
+            InsertHead(node);
         } else if (position == this.size + 1) {
-            insertTail(node);
+            InsertTail(node);
         } else {
             DNode<Double> current = this.head;
             for (int i = 1; i < position; i++) {
@@ -108,7 +108,7 @@ public class BonusDoubleDLL {
      * Deletes the head node of a doubly linked list.
      * If the list is empty, no action is taken.
      */
-    public void deleteHead() {
+    public void DeleteHead() {
         if (this.head == null) {
             return;
         }
@@ -129,7 +129,7 @@ public class BonusDoubleDLL {
      * Deletes the tail node of a doubly linked list.
      * If the list is empty, no action is taken.
      */
-    public void deleteTail() {
+    public void DeleteTail() {
         if (this.head == null) {
             return;
         }
@@ -146,21 +146,21 @@ public class BonusDoubleDLL {
 
     /**
      * Deletes a given node from the doubly linked list. If the node is the head, it
-     * calls deleteHead().
-     * If the node is the tail, it calls deleteTail().
+     * calls DeleteHead().
+     * If the node is the tail, it calls DeleteTail().
      * Otherwise, it removes the node from the list by updating the previous and
      * next nodes to bypass it.
      * 
-     * @param node the node to be deleted from the list
+     * @param node the node to be Deleted from the list
      */
-    public void delete(DNode<Double> node) {
+    public void Delete(DNode<Double> node) {
         if (this.head == null) {
             return;
         }
         if (this.head == node) { // if node is the head
-            deleteHead();
+            DeleteHead();
         } else if (this.tail == node) { // if node is the tail
-            deleteTail();
+            DeleteTail();
         } else { // if node is in the middle
             DNode<Double> prev = node.getPrev();
             DNode<Double> next = node.getNext();
@@ -177,7 +177,7 @@ public class BonusDoubleDLL {
     /**
      * Removes all of the elements from the doubly linked list.
      */
-    public void clear() {
+    public void Clear() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -187,10 +187,10 @@ public class BonusDoubleDLL {
      * Searches for a given node in the doubly linked list.
      * Can work with circular
      * 
-     * @param node The node to search for in the list.
+     * @param node The node to Search for in the list.
      * @return The node if found, null otherwise.
      */
-    public DNode<Double> search(DNode<Double> node) {
+    public DNode<Double> Search(DNode<Double> node) {
         DNode<Double> current = this.head;
         while (current != null) {
             if (current == node) {
@@ -209,17 +209,17 @@ public class BonusDoubleDLL {
      * Prints the contents of the doubly linked list.
      * Can work with circular
      * If the list is empty, it prints a message indicating that.
-     * Otherwise, it prints the length of the list, its sorted status,
+     * Otherwise, it prints the length of the list, its Sorted status,
      * and the data of each node in the list.
      */
-    public void print() {
+    public void Print() {
         if (this.size == 0) {
             System.out.println("List is empty");
             return;
         }
         boolean isCircular = (this.tail != null && this.tail.getNext() == this.head);
         System.out.println("List length: " + this.size);
-        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.println("Sorted status: " + (IsSorted() ? "Sorted" : "unSorted"));
         System.out.print("List content: ");
         DNode<Double> current = this.head;
         do {
@@ -231,9 +231,9 @@ public class BonusDoubleDLL {
 
     /**
      * Sorts the elements of the doubly linked list in ascending order
-     * using the insertion sort algorithm.
+     * using the Insertion Sort algorithm.
      */
-    public void sort() {
+    public void Sort() {
         if (this.size <= 1) {
             return;
         }
@@ -264,37 +264,37 @@ public class BonusDoubleDLL {
     }
 
     /**
-     * Inserts a new node in the doubly linked list while maintaining a sorted order.
-     * If the list is empty, the node is inserted as the head of the list.
-     * @param node the node to be inserted
+     * Inserts a new node in the doubly linked list while maintaining a Sorted order.
+     * If the list is empty, the node is Inserted as the head of the list.
+     * @param node the node to be Inserted
     */
-    public void sortedInsert(DNode<Double> node) {
+    public void SortedInsert(DNode<Double> node) {
         if (this.head == null) {
-            insertHead(node);
+            InsertHead(node);
             return;
         }
-        if (!isSorted()) {
-            sort();
+        if (!IsSorted()) {
+            Sort();
         }
-        // Traverse the list to find the position to insert the node
+        // Traverse the list to find the position to Insert the node
         DNode<Double> current = this.head;
         while (current != null && current.getData() < node.getData()) {
             current = current.getNext();
         }
-        // If the node should be inserted at the end of the list
+        // If the node should be Inserted at the end of the list
         if (current == null) {
             node.setPrev(tail);
             this.tail.setNext(node);
             this.tail = node;
         } 
-        // If the node should be inserted at the beginning of the list
+        // If the node should be Inserted at the beginning of the list
         else if (current == this.head) {
             node.setPrev(null);
             node.setNext(this.head);
             this.head.setPrev(node);
             this.head = node;
         } 
-        // If the node should be inserted in the middle of the list
+        // If the node should be Inserted in the middle of the list
         else {
             node.setPrev(current.getPrev());
             node.setNext(current);
@@ -305,14 +305,14 @@ public class BonusDoubleDLL {
     }
 
     /**
-     * Checks whether the doubly linked list is sorted in non-decreasing order.
-     * Returns true if the doubly linked list is sorted in non-decreasing order,
+     * Checks whether the doubly linked list is Sorted in non-decreasing order.
+     * Returns true if the doubly linked list is Sorted in non-decreasing order,
      * false otherwise.
      *
-     * @return true if the doubly linked list is sorted in non-decreasing order,
+     * @return true if the doubly linked list is Sorted in non-decreasing order,
      *         false otherwise
      */
-    public boolean isSorted() {
+    public boolean IsSorted() {
         if (this.head == null || this.size == 1) {
             return true;
         }

@@ -25,39 +25,39 @@ import main.java.myLib.datastructures.linear.*;
 
         // Test insertHead and insertTail
         System.out.println("\n-----------Testing insertHead and insertTail, expected: 3 1 2");
-        list.insertHead(node);
-        list.insertTail(new DNode<Integer>(2));
-        list.insertHead(new DNode<Integer>(3));
-        list.print(); // should print "List content: 3 1 2 "
+        list.InsertHead(node);
+        list.InsertTail(new DNode<Integer>(2));
+        list.InsertHead(new DNode<Integer>(3));
+        list.Print(); // should print "List content: 3 1 2 "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test insert
         System.out.println("\n-----------Testing insert, expected: 5 3 4 1 2 6");
-        list.insert(new DNode<Integer>(4), 2);
-        list.insert(new DNode<Integer>(5), 1);
-        list.insert(new DNode<Integer>(6), 6);
-        list.print(); // should print "List content: 5 3 4 1 2 6 "
+        list.Insert(new DNode<Integer>(4), 2);
+        list.Insert(new DNode<Integer>(5), 1);
+        list.Insert(new DNode<Integer>(6), 6);
+        list.Print(); // should print "List content: 5 3 4 1 2 6 "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test sort, search, deleteHead, deleteTail, and delete
         System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 3 4 2 ");
-        list.deleteHead();
-        list.deleteTail();
-        System.out.println("Search node: " + list.search(node)); // should print "Search node: 1"
-        list.delete(node);
-        list.print(); // should print "List content: 3 4 2"
+        list.DeleteHead();
+        list.DeleteTail();
+        System.out.println("Search node: " + list.Search(node)); // should print "Search node: 1"
+        list.Delete(node);
+        list.Print(); // should print "List content: 3 4 2"
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
-        list.clear();
-        list.print(); // should print "List is empty"
+        list.Clear();
+        list.Print(); // should print "List is empty"
 
         // SLL LIST2
 
@@ -65,37 +65,37 @@ import main.java.myLib.datastructures.linear.*;
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
         DLL list2 = new DLL(new DNode<Integer>(5));
-        list2.print();
+        list2.Print();
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext() + "\n");
-        list2.insertHead(new DNode<Integer>(4));
-        list2.insertHead(new DNode<Integer>(2));
-        list2.insertHead(new DNode<Integer>(3));
-        list2.insertHead(new DNode<Integer>(1));
+        list2.InsertHead(new DNode<Integer>(4));
+        list2.InsertHead(new DNode<Integer>(2));
+        list2.InsertHead(new DNode<Integer>(3));
+        list2.InsertHead(new DNode<Integer>(1));
         System.out.println("Before sort:");
-        list2.print(); // should print "List content: 1 3 2 4 5"
-        list2.sort();
+        list2.Print(); // should print "List content: 1 3 2 4 5"
+        list2.Sort();
         System.out.println("After sort:");
-        list2.print(); // should print "List content: 1 2 3 4 5"
+        list2.Print(); // should print "List content: 1 2 3 4 5"
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
 
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
-        list2.clear();
-        list2.print(); // should print "List is empty"
+        list2.Clear();
+        list2.Print(); // should print "List is empty"
 
         // Test sortedInsert and sort
         System.out.println("\n-----------Testing sortedInsert, expected: 1 2 3 4 5 6 ");
-        list2.sortedInsert(new DNode<Integer>(6));
-        list2.sortedInsert(new DNode<Integer>(1));
-        list2.sortedInsert(new DNode<Integer>(3));
-        list2.sortedInsert(new DNode<Integer>(2));
-        list2.sortedInsert(new DNode<Integer>(5));
-        list2.sortedInsert(new DNode<Integer>(4));
-        list2.print(); // should print "List content: 1 2 3 4 5 6 "
+        list2.SortedInsert(new DNode<Integer>(6));
+        list2.SortedInsert(new DNode<Integer>(1));
+        list2.SortedInsert(new DNode<Integer>(3));
+        list2.SortedInsert(new DNode<Integer>(2));
+        list2.SortedInsert(new DNode<Integer>(5));
+        list2.SortedInsert(new DNode<Integer>(4));
+        list2.Print(); // should print "List content: 1 2 3 4 5 6 "
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
