@@ -28,7 +28,7 @@ public class QueueLL extends SLL {
      * @param node Node to be added to queue tail
      */
     public void enqueue(SNode<Integer> node) {
-        super.insertTail(node);
+        super.InsertTail(node);
     }
 
     /**
@@ -38,7 +38,7 @@ public class QueueLL extends SLL {
     public SNode<Integer> dequeue() {
 
         SNode<Integer> node = this.head;
-        super.deleteHead();
+        super.DeleteHead();
         return node;
     }
     
@@ -46,7 +46,7 @@ public class QueueLL extends SLL {
      * Function to return head of queue
      * @return - Returns null if head is null, else returns head
      */
-    public SNode<Integer> peek() {
+    public SNode<Integer> Peek() {
         if (head == null) {
             return null;
         }
@@ -58,14 +58,14 @@ public class QueueLL extends SLL {
      * @param node argument node - no functionality in QueueLL
      */
     @Override
-    public void sortedInsert(SNode<Integer> node) {}
+    public void SortedInsert(SNode<Integer> node) {}
 
     /**
      * No functionality in QueueLL
      * @param node argument node - no functionality in QueueLL
      */
     @Override
-    public void insertHead(SNode<Integer> node) {}
+    public void InsertHead(SNode<Integer> node) {}
 
     /**
      * Inserts argument node at argument position
@@ -73,33 +73,33 @@ public class QueueLL extends SLL {
      * @param position the SNode to add to the list
      */
     @Override
-    public void insert(SNode<Integer> node, int position) {}
+    public void Insert(SNode<Integer> node, int position) {}
 
     /**
      * No functionality in QueueLL
      * @param node argument node - no functionality in QueueLL
      */
     @Override
-    public void delete(SNode<Integer> node) {}
+    public void Delete(SNode<Integer> node) {}
 
     /**
      * Deletes tail of queue
      */
     @Override
-    public void deleteTail() {}
+    public void DeleteTail() {}
 
     /**
      * No functionality in QueueLL
      */
     @Override
-    public void sort() {}
+    public void Sort() {}
 
     /**
      * Clears all queue elements
      */
     @Override
-    public void clear() {
-        super.clear();
+    public void Clear() {
+        super.Clear();
     }
  
 }
