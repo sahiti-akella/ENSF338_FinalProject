@@ -3,21 +3,21 @@ package main.java.myLib.datastructures.linear;
 import main.java.myLib.datastructures.nodes.DNode;
 
 /**
- * The DLL class represents a doubly linked list data structure.
+ * The DLL class represents a doubly linked list data structure of DOUBLES.
  * It is used to store a sequence of nodes that each contain a
  * reference to the previous and next nodes in the sequence.
  */
 
-public class DLL {
+public class BonusDoubleDLL {
 
-    protected DNode<Integer> head;
-    public DNode<Integer> tail;
+    protected DNode<Double> head;
+    public DNode<Double> tail;
     protected int size;
 
     /**
      * Creates an empty doubly linked list.
      */
-    public DLL() {
+    public BonusDoubleDLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -28,7 +28,7 @@ public class DLL {
      * 
      * @param node the node to be added to the list
      */
-    public DLL(DNode<Integer> node) {
+    public BonusDoubleDLL(DNode<Double> node) {
         this.head = node;
         this.tail = node;
         this.head.setPrev(tail);
@@ -40,7 +40,7 @@ public class DLL {
      * 
      * @param node the node to be inserted
      */
-    public void insertHead(DNode<Integer> node) {
+    public void insertHead(DNode<Double> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -60,7 +60,7 @@ public class DLL {
      * 
      * @param node the node to be inserted
      */
-    public void insertTail(DNode<Integer> node) {
+    public void insertTail(DNode<Double> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -83,7 +83,7 @@ public class DLL {
      * @throws IllegalArgumentException if the position is less than 1 or greater
      *                                  than the size of the list + 1
      */
-    public void insert(DNode<Integer> node, int position) {
+    public void insert(DNode<Double> node, int position) {
         if (position < 1 || position > this.size + 1) {
             throw new IllegalArgumentException("Invalid position");
         }
@@ -92,7 +92,7 @@ public class DLL {
         } else if (position == this.size + 1) {
             insertTail(node);
         } else {
-            DNode<Integer> current = this.head;
+            DNode<Double> current = this.head;
             for (int i = 1; i < position; i++) {
                 current = current.getNext();
             }
@@ -153,7 +153,7 @@ public class DLL {
      * 
      * @param node the node to be deleted from the list
      */
-    public void delete(DNode<Integer> node) {
+    public void delete(DNode<Double> node) {
         if (this.head == null) {
             return;
         }
@@ -162,8 +162,8 @@ public class DLL {
         } else if (this.tail == node) { // if node is the tail
             deleteTail();
         } else { // if node is in the middle
-            DNode<Integer> prev = node.getPrev();
-            DNode<Integer> next = node.getNext();
+            DNode<Double> prev = node.getPrev();
+            DNode<Double> next = node.getNext();
             if (prev != null) {
                 prev.setNext(next);
             }
@@ -190,8 +190,8 @@ public class DLL {
      * @param node The node to search for in the list.
      * @return The node if found, null otherwise.
      */
-    public DNode<Integer> search(DNode<Integer> node) {
-        DNode<Integer> current = this.head;
+    public DNode<Double> search(DNode<Double> node) {
+        DNode<Double> current = this.head;
         while (current != null) {
             if (current == node) {
                 return current;
@@ -237,13 +237,13 @@ public class DLL {
         if (this.size <= 1) {
             return;
         }
-        DNode<Integer> current = this.head.getNext();
+        DNode<Double> current = this.head.getNext();
         while (current != null) {
-            DNode<Integer> next = current.getNext();
+            DNode<Double> next = current.getNext();
             while (current.getPrev() != null && current.getData() < current.getPrev().getData()) {
-                DNode<Integer> prev = current.getPrev();
-                DNode<Integer> prevPrev = prev.getPrev();
-                DNode<Integer> currentNext = current.getNext();
+                DNode<Double> prev = current.getPrev();
+                DNode<Double> prevPrev = prev.getPrev();
+                DNode<Double> currentNext = current.getNext();
                 prev.setNext(currentNext);
                 current.setNext(prev);
                 current.setPrev(prevPrev);
@@ -268,7 +268,7 @@ public class DLL {
      * If the list is empty, the node is inserted as the head of the list.
      * @param node the node to be inserted
     */
-    public void sortedInsert(DNode<Integer> node) {
+    public void sortedInsert(DNode<Double> node) {
         if (this.head == null) {
             insertHead(node);
             return;
@@ -277,7 +277,7 @@ public class DLL {
             sort();
         }
         // Traverse the list to find the position to insert the node
-        DNode<Integer> current = this.head;
+        DNode<Double> current = this.head;
         while (current != null && current.getData() < node.getData()) {
             current = current.getNext();
         }
@@ -316,7 +316,7 @@ public class DLL {
         if (this.head == null || this.size == 1) {
             return true;
         }
-        DNode<Integer> current = this.head;
+        DNode<Double> current = this.head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
                 return false;
