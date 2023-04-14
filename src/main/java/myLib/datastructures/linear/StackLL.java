@@ -9,44 +9,44 @@ public class StackLL extends SLL {
         super();
     }
 
-    public void push(SNode node) {
+    public void push(SNode<Integer> node) {
         super.insertHead(node);
     }
 
-    public SNode pop() {
-        SNode node = head;
+    public SNode<Integer> pop() {
+        SNode<Integer> node = head;
         if (head != null) {
             deleteHead();
         }
         return node;
     }
 
-    public SNode peek() {
+    public SNode<Integer> peek() {
         return head;
     }
 
     @Override
-    public void insertHead(SNode node) {
+    public void insertHead(SNode<Integer> node) {
         super.insertHead(node);
     }
 
     @Override
-    public void insertTail(SNode node) {
+    public void insertTail(SNode<Integer> node) {
         // Override with empty body to avoid misuse
     }
 
     @Override
-    public void insert(SNode node, int position) {
+    public void insert(SNode<Integer> node, int position) {
         super.insert(node, position);
     }
 
     @Override
-    public void sortedInsert(SNode node) {
+    public void sortedInsert(SNode<Integer> node) {
         super.sortedInsert(node);
     }
 
     @Override
-    public SNode search(SNode node) {
+    public SNode<Integer> search(SNode<Integer> node) {
         return super.search(node);
     }
 
@@ -61,7 +61,7 @@ public class StackLL extends SLL {
     }
 
     @Override
-    public void delete(SNode node) {
+    public void delete(SNode<Integer> node) {
         super.delete(node);
     }
 

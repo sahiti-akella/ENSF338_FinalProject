@@ -9,7 +9,7 @@ import main.java.myLib.datastructures.linear.*;
 
  public class CDLLTests {
     /**
-     * The main method of this class runs a set of tests on the SLL class.
+     * The main method of this class runs a set of tests on the CDLL class.
      * 
      * @param args the command line arguments
      */

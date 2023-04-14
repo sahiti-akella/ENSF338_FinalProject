@@ -10,9 +10,9 @@ public class QueueLLTests {
         QueueLL queue = new QueueLL();
         
         // Enqueue some nodes
-        SNode node1 = new SNode(1);
-        SNode node2 = new SNode(2);
-        SNode node3 = new SNode(3);
+        SNode<Integer> node1 = new SNode<Integer>(1);
+        SNode<Integer> node2 = new SNode<Integer>(2);
+        SNode<Integer> node3 = new SNode<Integer>(3);
         queue.enqueue(node1);
         queue.enqueue(node2);
         queue.enqueue(node3);

@@ -10,7 +10,7 @@ import main.java.myLib.datastructures.linear.*;
 
  public class DLLTests {
     /**
-     * The main method of this class runs a set of tests on the SLL class.
+     * The main method of this class runs a set of tests on the DLL class.
      * 
      * @param args the command line arguments
      */
