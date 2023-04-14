@@ -46,7 +46,7 @@ public class QueueLL extends SLL {
      * Function to return head of queue
      * @return - Returns null if head is null, else returns head
      */
-    public SNode<Integer> peek() {
+    public SNode<Integer> Peek() {
         if (head == null) {
             return null;
         }

@@ -143,6 +143,7 @@ public class CDLL extends DLL {
     /**
      * Removes all of the elements from the circular doubly linked list.
      */
+    @Override
     public void Clear() {
         super.Clear();
     }
@@ -153,6 +154,7 @@ public class CDLL extends DLL {
      * @param node The node to Search for in the list.
      * @return The node if found, null otherwise.
      */
+    @Override
     public DNode<Integer> Search(DNode<Integer> node) {
         return super.Search(node);
 
@@ -164,6 +166,7 @@ public class CDLL extends DLL {
      * Otherwise, it prints the length of the list, its Sorted status,
      * and the data of each node in the list.
      */
+    @Override
     public void Print() {
         super.Print();
     }

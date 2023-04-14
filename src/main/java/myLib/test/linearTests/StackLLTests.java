@@ -20,8 +20,8 @@ public class StackLLTests {
         System.out.println("\nTesting push method...");
         SNode<Integer> node2 = new SNode<Integer>(2);
         SNode<Integer> node3 = new SNode<Integer>(3);
-        stack.push(node2);
-        stack.push(node3);
+        stack.Push(node2);
+        stack.Push(node3);
         stack.Print(); 
         
         // Test pop method
@@ -32,7 +32,7 @@ public class StackLLTests {
         
         // Test peek method
         System.out.println("\nTesting peek method...");
-        SNode<Integer> peeked = stack.peek();
+        SNode<Integer> peeked = stack.Peek();
         System.out.println("Peeked node: " + peeked.getData()); // expected output: Peeked node: 2
         
         // Test search method
