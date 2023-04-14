@@ -268,7 +268,7 @@ public class SLL {
         }
         boolean isCircular = (this.tail != null && this.tail.getNext() == this.head);
         System.out.println("List length: " + this.size);
-        System.out.println("Sorted status: " + (IsSorted() ? "Sorted" : "unSorted"));
+        System.out.println("Sorted status: " + (IsSorted() ? "Sorted" : "Unsorted"));
         System.out.print("List content: ");
         SNode<Integer> current = this.head;
         do {
