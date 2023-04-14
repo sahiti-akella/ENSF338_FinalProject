@@ -26,7 +26,7 @@ public class CSLL extends SLL {
      * 
      * @param head the first node in the circular linked list
      */
-    public CSLL(SNode node) {
+    public CSLL(SNode<Integer> node) {
         head = node;
         tail = node;
         tail.setNext(head);
@@ -40,7 +40,7 @@ public class CSLL extends SLL {
      * @param node the node to insert at the end of the list
      */
     @Override
-    public void insertHead(SNode node) {
+    public void insertHead(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -60,7 +60,7 @@ public class CSLL extends SLL {
      * @param node the node to insert at the end of the list
      */
     @Override
-    public void insertTail(SNode node) {
+    public void insertTail(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -80,7 +80,7 @@ public class CSLL extends SLL {
      * @param position the position at which the node should be inserted, 1-based index
      * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
-    public void insert(SNode node, int position) {
+    public void insert(SNode<Integer> node, int position) {
         super.insert(node, position);
     }
 
@@ -116,7 +116,7 @@ public class CSLL extends SLL {
             head = null;
             tail = null;
         } else {
-            SNode current = head;
+            SNode<Integer> current = head;
             while (current.getNext() != tail) {
                 current = current.getNext();
             }
@@ -132,7 +132,7 @@ public class CSLL extends SLL {
      * @param node the node to be deleted from the linked list.
      */
     @Override
-    public void delete(SNode node) {
+    public void delete(SNode<Integer> node) {
         if (head == null) {
             return;
         }
@@ -144,7 +144,7 @@ public class CSLL extends SLL {
             deleteTail();
             return;
         }
-        SNode current = head;
+        SNode<Integer> current = head;
         while (current.getNext() != head && !current.getNext().equals(node)) {
             current = current.getNext();
         }
@@ -164,7 +164,7 @@ public class CSLL extends SLL {
      * @param node the node to search for in the list
      * @return the node if found in the list, otherwise null
      */
-    public SNode search(SNode node) {
+    public SNode<Integer> search(SNode<Integer> node) {
         return super.search(node);
     }
 
@@ -199,7 +199,7 @@ public class CSLL extends SLL {
      * @param node the node to be inserted into the list
      */
     @Override
-    public void sortedInsert(SNode node) {
+    public void sortedInsert(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -209,7 +209,7 @@ public class CSLL extends SLL {
             head = node;
             tail.setNext(head);
         } else {
-            SNode current = head;
+            SNode<Integer> current = head;
             while (current.getNext() != head && node.getData() > current.getNext().getData()) {
                 current = current.getNext();
             }
@@ -242,7 +242,7 @@ public class CSLL extends SLL {
             boolean swap = true;
             while (swap) {
                 swap = false;
-                SNode current = head;
+                SNode<Integer> current = head;
                 while (current.getNext() != head) {
                     if (current.getData() > current.getNext().getData()) {
                         int temp = current.getData();
@@ -270,7 +270,7 @@ public class CSLL extends SLL {
             return true;
         }
 
-        SNode current = head;
+        SNode<Integer> current = head;
         while (current.getNext() != head) {
             if (current.getData() > current.getNext().getData()) {
                 return false;

@@ -153,7 +153,7 @@ public class CDLL extends DLL {
      * @param node The node to search for in the list.
      * @return The node if found, null otherwise.
      */
-    public DNode search(DNode<Integer> node) {
+    public DNode<Integer> search(DNode<Integer> node) {
         return super.search(node);
 
     }

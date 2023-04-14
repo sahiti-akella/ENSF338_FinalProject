@@ -8,20 +8,20 @@ public class QueueLL extends SLL {
         super();
     }
     
-    public void enqueue(SNode node) {
+    public void enqueue(SNode<Integer> node) {
         super.insertTail(node);
     }
     
-    public SNode dequeue() {
+    public SNode<Integer> dequeue() {
         if (head == null) {
             return null;
         }
-        SNode node = head;
+        SNode<Integer> node = head;
         super.deleteHead();
         return node;
     }
 
-    public SNode peek() {
+    public SNode<Integer> peek() {
         if (head == null) {
             return null;
         }
@@ -30,19 +30,19 @@ public class QueueLL extends SLL {
 
     // Override any methods that are not applicable to queue behavior with empty body
     @Override
-    public void sortedInsert(SNode node) {
+    public void sortedInsert(SNode<Integer> node) {
     }
     
     @Override
-    public void insertHead(SNode node) {
+    public void insertHead(SNode<Integer> node) {
     }
     
     @Override
-    public void insert(SNode node, int position) {
+    public void insert(SNode<Integer> node, int position) {
     }
     
     @Override
-    public void delete(SNode node) {
+    public void delete(SNode<Integer> node) {
     }
 
     @Override

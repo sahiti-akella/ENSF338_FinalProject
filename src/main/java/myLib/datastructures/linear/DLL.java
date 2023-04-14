@@ -221,7 +221,7 @@ public class DLL {
         System.out.println("List length: " + this.size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-        DNode current = this.head;
+        DNode<Integer> current = this.head;
         do {
             System.out.print(current.getData() + " ");
             current = current.getNext();

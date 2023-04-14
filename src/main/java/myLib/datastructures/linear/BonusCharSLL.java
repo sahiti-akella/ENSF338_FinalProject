@@ -3,21 +3,21 @@ package main.java.myLib.datastructures.linear;
 import main.java.myLib.datastructures.nodes.SNode;
 
 /**
- * The SLL class represents a singly linked list data structure.
+ * The SLL class represents a singly linked list data structure of CHARACTERS.
  * It contains a reference to the head node, tail node and the size of the
  * linked list.
  */
 
-public class SLL {
+public class BonusCharSLL {
 
-    protected SNode<Integer> head;
-    public SNode<Integer> tail;
+    protected SNode<Character> head;
+    public SNode<Character> tail;
     protected int size;
 
     /**
      * Constructs an empty singly linked list.
      */
-    public SLL() {
+    public BonusCharSLL() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -28,7 +28,7 @@ public class SLL {
      * 
      * @param head the head node of the singly linked list.
      */
-    public SLL(SNode<Integer> node) {
+    public BonusCharSLL(SNode<Character> node) {
         this.head = node;
         this.tail = node;
         this.size = 1; 
@@ -39,7 +39,7 @@ public class SLL {
      * 
      * @param node the node to be inserted.
      */
-    public void insertHead(SNode<Integer> node) {
+    public void insertHead(SNode<Character> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -55,7 +55,7 @@ public class SLL {
      * 
      * @param node the node to be inserted.
      */
-    public void insertTail(SNode<Integer> node) {
+    public void insertTail(SNode<Character> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -74,7 +74,7 @@ public class SLL {
      * @param position the position at which the node should be inserted, 1-based index
      * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
-    public void insert(SNode<Integer> node, int position) {
+    public void insert(SNode<Character> node, int position) {
         if (position < 1 || position > this.size + 1) {
             throw new IndexOutOfBoundsException("Invalid position for insertion");
         }
@@ -83,7 +83,7 @@ public class SLL {
         } else if (position == this.size + 1) {
             insertTail(node);
         } else {
-            SNode<Integer> current = this.head;
+            SNode<Character> current = this.head;
             for (int i = 2; i < position; i++) {
                 current = current.getNext();
             }
@@ -99,11 +99,11 @@ public class SLL {
      * 
      * @param node the node to be inserted into the list
      */
-    public void sortedInsert(SNode<Integer> node) {
+    public void sortedInsert(SNode<Character> node) {
         if (this.head == null || node.getData() < this.head.getData()) {
             insertHead(node);
         } else {
-            SNode<Integer> current = this.head;
+            SNode<Character> current = this.head;
             while (current.getNext() != null && node.getData() > current.getNext().getData()) {
                 current = current.getNext();
             }
@@ -122,8 +122,8 @@ public class SLL {
      * @param node the node to search for in the list
      * @return the node if found in the list, otherwise null
      */
-    public SNode<Integer> search(SNode<Integer> node) {
-        SNode<Integer> current = this.head;
+    public SNode<Character> search(SNode<Character> node) {
+        SNode<Character> current = this.head;
         boolean isCircular = false;
         while (current != null && !isCircular) {
             if (current.equals(node)) {
@@ -169,7 +169,7 @@ public class SLL {
             size = 0;
             return;
         }
-        SNode<Integer> current = this.head;
+        SNode<Character> current = this.head;
         while (current.getNext() != this.tail) {
             current = current.getNext();
         }
@@ -183,7 +183,7 @@ public class SLL {
      * 
      * @param node the node to be deleted from the linked list.
      */
-    public void delete(SNode<Integer> node) {
+    public void delete(SNode<Character> node) {
         if (this.head == null) {
             return;
         }
@@ -195,7 +195,7 @@ public class SLL {
             deleteTail();
             return;
         }
-        SNode<Integer> current = this.head;
+        SNode<Character> current = this.head;
         while (current.getNext() != null && !current.getNext().equals(node)) {
             current = current.getNext();
         }
@@ -219,15 +219,15 @@ public class SLL {
             return;
         }
 
-        SNode<Integer> newHead = null;
-        SNode<Integer> current = this.head;
+        SNode<Character> newHead = null;
+        SNode<Character> current = this.head;
         while (current != null) {
-            SNode<Integer> next = current.getNext();
+            SNode<Character> next = current.getNext();
             if (newHead == null || current.getData() < newHead.getData()) {
                 current.setNext(newHead);
                 newHead = current;
             } else {
-                SNode<Integer> search = newHead;
+                SNode<Character> search = newHead;
                 while (search.getNext() != null && current.getData() > search.getNext().getData()) {
                     search = search.getNext();
                 }
@@ -270,7 +270,7 @@ public class SLL {
         System.out.println("List length: " + this.size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-        SNode<Integer> current = this.head;
+        SNode<Character> current = this.head;
         do {
             System.out.print(current.getData() + " ");
             current = current.getNext();
@@ -290,7 +290,7 @@ public class SLL {
         if (this.head == null || this.size == 1) {
             return true;
         }
-        SNode<Integer> current = this.head;
+        SNode<Character> current = this.head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
                 return false;
