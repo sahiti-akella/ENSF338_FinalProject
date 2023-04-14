@@ -24,7 +24,7 @@ public class SLLTests {
         // SLL LIST
 
         // Test insertHead and insertTail
-        System.out.println("\n-----------Testing insertHead and insertTail, expected: 312");
+        System.out.println("\n-----------Testing insertHead and insertTail, expected: 3 1 2");
         list.insertHead(node);
         list.insertTail(new SNode(2));
         list.insertHead(new SNode(3));
@@ -34,7 +34,7 @@ public class SLLTests {
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test insert
-        System.out.println("\n-----------Testing insert, expected: 534126");
+        System.out.println("\n-----------Testing insert, expected: 5 3 4 1 2 6");
         list.insert(new SNode(4), 2);
         list.insert(new SNode(5), 1);
         list.insert(new SNode(6), 6);
@@ -44,7 +44,7 @@ public class SLLTests {
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test sort, search, deleteHead, deleteTail, and delete
-        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 342 ");
+        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected:  3 4 2 ");
         list.deleteHead();
         list.deleteTail();
         System.out.println("Search node: " + list.search(node)); // should print "Search node: 1"
@@ -88,7 +88,7 @@ public class SLLTests {
         list2.print(); // should print "List is empty"
 
         // Test sortedInsert and sort
-        System.out.println("\n-----------Testing sortedInsert, expected: 123456");
+        System.out.println("\n-----------Testing sortedInsert, expected: 1 2 3 4 5 6");
         list2.sortedInsert(new SNode(6));
         list2.sortedInsert(new SNode(1));
         list2.sortedInsert(new SNode(3));

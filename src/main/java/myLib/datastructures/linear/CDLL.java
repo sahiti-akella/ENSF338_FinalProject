@@ -27,7 +27,7 @@ public class CDLL extends DLL {
      *
      * @param node the DNode to add to the list
      */
-    public CDLL(DNode node) {
+    public CDLL(DNode<Integer> node) {
         head = node;
         tail = node;
         head.setPrev(tail);
@@ -43,7 +43,7 @@ public class CDLL extends DLL {
      * @param node the node to be inserted at the head of the list
      */
     @Override
-    public void insertHead(DNode node) {
+    public void insertHead(DNode<Integer> node) {
         super.insertHead(node);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
@@ -60,7 +60,7 @@ public class CDLL extends DLL {
      * @param node the node to be inserted at the tail of the list
      */
     @Override
-    public void insertTail(DNode node) {
+    public void insertTail(DNode<Integer> node) {
         super.insertTail(node);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
@@ -79,7 +79,7 @@ public class CDLL extends DLL {
      *                                  than the size of the list + 1
      */
     @Override
-    public void insert(DNode node, int position) {
+    public void insert(DNode<Integer> node, int position) {
         super.insert(node, position);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
@@ -131,7 +131,7 @@ public class CDLL extends DLL {
      * @param node the node to be deleted from the list
      */
     @Override
-    public void delete(DNode node) {
+    public void delete(DNode<Integer> node) {
         super.delete(node);
         // update tail's next reference if the list is circular
         if (tail != null && tail.getNext() != head) {
@@ -153,7 +153,7 @@ public class CDLL extends DLL {
      * @param node The node to search for in the list.
      * @return The node if found, null otherwise.
      */
-    public DNode search(DNode node) {
+    public DNode search(DNode<Integer> node) {
         return super.search(node);
 
     }
@@ -177,12 +177,12 @@ public class CDLL extends DLL {
         if (size <= 1) {
             return;
         }
-        DNode current = head.getNext();
+        DNode<Integer> current = head.getNext();
         while (current != head) {
-            DNode temp = current;
+            DNode<Integer> temp = current;
             while (temp.getPrev() != null && temp.getData() < temp.getPrev().getData()) {
-                DNode prev = temp.getPrev();
-                DNode next = temp.getNext();
+                DNode<Integer> prev = temp.getPrev();
+                DNode<Integer> next = temp.getNext();
                 if (prev.getPrev() != null) {
                     prev.getPrev().setNext(temp);
                 } else {
@@ -208,7 +208,7 @@ public class CDLL extends DLL {
      * @param node the node to be inserted
     */
     @Override
-    public void sortedInsert(DNode node) {
+    public void sortedInsert(DNode<Integer> node) {
         if (head == null) {
             insertHead(node);
             return;
@@ -217,7 +217,7 @@ public class CDLL extends DLL {
             sort();
         }
         // Find the appropriate position for the new node in the sorted list
-        DNode current = head;
+        DNode<Integer> current = head;
         while (current != tail && current.getData() < node.getData()) {
             current = current.getNext();
         }
@@ -260,7 +260,7 @@ public class CDLL extends DLL {
         if (head == null || size == 1) {
             return true;
         }
-        DNode current = head.getNext();
+        DNode<Integer> current = head.getNext();
         while (current != head) {
             if (current.getData() < current.getPrev().getData()) {
                 return false;
