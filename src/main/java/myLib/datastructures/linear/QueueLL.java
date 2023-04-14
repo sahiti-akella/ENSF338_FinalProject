@@ -27,7 +27,7 @@ public class QueueLL extends SLL {
      * Adds argument node to queue tail
      * @param node Node to be added to queue tail
      */
-    public void enqueue(SNode<Integer> node) {
+    public void Enqueue(SNode<Integer> node) {
         super.InsertTail(node);
     }
 
@@ -35,7 +35,7 @@ public class QueueLL extends SLL {
      * Deletes node at queue head
      * @return - Returns dequeued node
      */
-    public SNode<Integer> dequeue() {
+    public SNode<Integer> Dequeue() {
 
         SNode<Integer> node = this.head;
         super.DeleteHead();

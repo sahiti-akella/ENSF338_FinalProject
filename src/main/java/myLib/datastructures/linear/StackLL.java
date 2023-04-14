@@ -27,7 +27,7 @@ public class StackLL extends SLL {
      * Adds argument node to the start of the stack
      * @param node the SNode to add to the stack
      */
-    public void push(SNode<Integer> node) {
+    public void Push(SNode<Integer> node) {
         super.InsertHead(node);
     }
 
@@ -35,7 +35,7 @@ public class StackLL extends SLL {
      * Deletes the head of the stack if not null
      * @return Returns the popped element
      */
-    public SNode<Integer> pop() {
+    public SNode<Integer> Pop() {
         SNode<Integer> node = head;
         if (head != null) {
             super.DeleteHead();
@@ -48,7 +48,7 @@ public class StackLL extends SLL {
      * @return Returns the node at head of stack
      * 
      */
-    public SNode<Integer> peek() {
+    public SNode<Integer> Peek() {
         return this.head;
     }
 
