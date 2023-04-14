@@ -68,7 +68,7 @@ public class QueueLL extends SLL {
     public void insertHead(SNode<Integer> node) {}
 
     /**
-     // ADD
+     * Inserts argument node at argument position
      * @param node the SNode to add to the list
      * @param position the SNode to add to the list
      */
@@ -76,7 +76,7 @@ public class QueueLL extends SLL {
     public void insert(SNode<Integer> node, int position) {}
 
     /**
-     // No functionality in QueueLL
+     * No functionality in QueueLL
      * @param node argument node - no functionality in QueueLL
      */
     @Override
@@ -89,13 +89,13 @@ public class QueueLL extends SLL {
     public void deleteTail() {}
 
     /**
-     No functionality
+     * No functionality in QueueLL
      */
     @Override
     public void sort() {}
 
     /**
-     Clears all queue elements
+     * Clears all queue elements
      */
     @Override
     public void clear() {
