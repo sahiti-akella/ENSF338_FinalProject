@@ -15,7 +15,7 @@ public class QueueLLTests {
         queue.enqueue(new SNode<>(3));
 
         // peek at the head node
-        System.out.println("Head node: " + queue.peek());
+        System.out.println("Head node: " + queue.Peek());
 
         // dequeue some nodes
         System.out.println("Dequeued node: " + queue.dequeue().getData());
@@ -30,7 +30,7 @@ public class QueueLLTests {
         printQueue(queue);
 
         // clear the queue
-        queue.clear();
+        queue.Clear();
 
         // print the queue
         System.out.print("Queue: ");
@@ -38,7 +38,7 @@ public class QueueLLTests {
     }
 
     private static void printQueue(QueueLL queue) {
-        SNode<Integer> node = queue.peek();
+        SNode<Integer> node = queue.Peek();
         while (node != null) {
             System.out.print(node.getData() + " ");
             node = node.getNext();
