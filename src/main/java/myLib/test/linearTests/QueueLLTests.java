@@ -1,36 +1,49 @@
 package main.java.myLib.test.linearTests;
 
-import main.java.myLib.datastructures.nodes.*;
-import main.java.myLib.datastructures.linear.*;
+import main.java.myLib.datastructures.linear.QueueLL;
+import main.java.myLib.datastructures.nodes.SNode;
 
 public class QueueLLTests {
+
     public static void main(String[] args) {
-        
-        // Create a new queue
+        // create an empty queue
         QueueLL queue = new QueueLL();
-        
-        // Enqueue some nodes
-        SNode<Integer> node1 = new SNode<Integer>(1);
-        SNode<Integer> node2 = new SNode<Integer>(2);
-        SNode<Integer> node3 = new SNode<Integer>(3);
-        queue.enqueue(node1);
-        queue.enqueue(node2);
-        queue.enqueue(node3);
-        
-        // Test peek method
-        System.out.println("Peek: " + queue.peek().getData());
-        
-        // Dequeue nodes and print them
-        System.out.println("Dequeue: " + queue.dequeue().getData());
-        System.out.println("Dequeue: " + queue.dequeue().getData());
-        System.out.println("Dequeue: " + queue.dequeue().getData());
-        
-        // Test dequeue on empty queue
-        System.out.println("Dequeue: " + queue.dequeue());
-        
-        // Test enqueue after dequeuing all nodes
-        queue.enqueue(node1);
-        System.out.println("Peek: " + queue.peek().getData());
+
+        // enqueue some nodes
+        queue.enqueue(new SNode<>(1));
+        queue.enqueue(new SNode<>(2));
+        queue.enqueue(new SNode<>(3));
+
+        // peek at the head node
+        System.out.println("Head node: " + queue.peek());
+
+        // dequeue some nodes
+        System.out.println("Dequeued node: " + queue.dequeue().getData());
+        System.out.println("Dequeued node: " + queue.dequeue().getData());
+
+        // enqueue some more nodes
+        queue.enqueue(new SNode<>(4));
+        queue.enqueue(new SNode<>(5));
+
+        // print the queue
+        System.out.print("Queue: ");
+        printQueue(queue);
+
+        // clear the queue
+        queue.clear();
+
+        // print the queue
+        System.out.print("Queue: ");
+        printQueue(queue);
     }
-    
+
+    private static void printQueue(QueueLL queue) {
+        SNode<Integer> node = queue.peek();
+        while (node != null) {
+            System.out.print(node.getData() + " ");
+            node = node.getNext();
+        }
+        System.out.println();
+    }
+
 }
