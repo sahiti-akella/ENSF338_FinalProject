@@ -18,9 +18,9 @@ public class DLL {
      * Creates an empty doubly linked list.
      */
     public DLL() {
-        head = null;
-        tail = null;
-        size = 0;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
     /**
@@ -29,10 +29,10 @@ public class DLL {
      * @param node the node to be added to the list
      */
     public DLL(DNode node) {
-        head = node;
-        tail = node;
-        head.setPrev(tail);
-        size = 1;
+        this.head = node;
+        this.tail = node;
+        this.head.setPrev(tail);
+        this.size = 1;
     }
 
     /**
@@ -41,18 +41,18 @@ public class DLL {
      * @param node the node to be inserted
      */
     public void insertHead(DNode node) {
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
             node.setPrev(null);
             node.setNext(null);
         } else {
             node.setPrev(null);
-            node.setNext(head);
-            head.setPrev(node);
-            head = node;
+            node.setNext(this.head);
+            this.head.setPrev(node);
+            this.head = node;
         }
-        size++;
+        this.size++;
     }
 
     /**
@@ -61,18 +61,18 @@ public class DLL {
      * @param node the node to be inserted
      */
     public void insertTail(DNode node) {
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (this.head == null) {
+            this.head = node;
+            this.tail = node;
             node.setPrev(null);
             node.setNext(null);
         } else {
-            node.setPrev(tail);
+            node.setPrev(this.tail);
             node.setNext(null);
-            tail.setNext(node);
-            tail = node;
+            this.tail.setNext(node);
+            this.tail = node;
         }
-        size++;
+        this.size++;
     }
 
     /**
@@ -84,15 +84,15 @@ public class DLL {
      *                                  than the size of the list + 1
      */
     public void insert(DNode node, int position) {
-        if (position < 1 || position > size + 1) {
+        if (position < 1 || position > this.size + 1) {
             throw new IllegalArgumentException("Invalid position");
         }
         if (position == 1) {
             insertHead(node);
-        } else if (position == size + 1) {
+        } else if (position == this.size + 1) {
             insertTail(node);
         } else {
-            DNode current = head;
+            DNode current = this.head;
             for (int i = 1; i < position; i++) {
                 current = current.getNext();
             }
@@ -100,7 +100,7 @@ public class DLL {
             node.setNext(current);
             current.getPrev().setNext(node);
             current.setPrev(node);
-            size++;
+            this.size++;
         }
     }
 
@@ -109,19 +109,19 @@ public class DLL {
      * If the list is empty, no action is taken.
      */
     public void deleteHead() {
-        if (head == null) {
+        if (this.head == null) {
             return;
         }
-        if (head != null) {
+        if (this.head != null) {
             // If the head is the only node in the list, set both head and tail to null
-            if (head == tail) {
-                head = null;
-                tail = null;
+            if (this.head == tail) {
+                this.head = null;
+                this.tail = null;
             } else {
-                head = head.getNext();
-                head.setPrev(null);
+                this.head = this.head.getNext();
+                this.head.setPrev(null);
             }
-            size--;
+            this.size--;
         }
     }
 
@@ -130,18 +130,18 @@ public class DLL {
      * If the list is empty, no action is taken.
      */
     public void deleteTail() {
-        if (head == null) {
+        if (this.head == null) {
             return;
         }
-        if (tail.getPrev() == null) {
+        if (this.tail.getPrev() == null) {
             // There is only one node in the list
-            head = null;
-            tail = null;
+            this.head = null;
+            this.tail = null;
         } else {
-            tail = tail.getPrev();
-            tail.setNext(null);
+            this.tail = tail.getPrev();
+            this.tail.setNext(null);
         }
-        size--;
+        this.size--;
     }
 
     /**
@@ -154,12 +154,12 @@ public class DLL {
      * @param node the node to be deleted from the list
      */
     public void delete(DNode node) {
-        if (head == null) {
+        if (this.head == null) {
             return;
         }
-        if (head == node) { // if node is the head
+        if (this.head == node) { // if node is the head
             deleteHead();
-        } else if (tail == node) { // if node is the tail
+        } else if (this.tail == node) { // if node is the tail
             deleteTail();
         } else { // if node is in the middle
             DNode prev = node.getPrev();
@@ -170,7 +170,7 @@ public class DLL {
             if (next != null) {
                 next.setPrev(prev);
             }
-            size--;
+            this.size--;
         }
     }
 
@@ -178,9 +178,9 @@ public class DLL {
      * Removes all of the elements from the doubly linked list.
      */
     public void clear() {
-        head = null;
-        tail = null;
-        size = 0;
+        this.head = null;
+        this.tail = null;
+        this.size = 0;
     }
 
     /**
@@ -191,14 +191,14 @@ public class DLL {
      * @return The node if found, null otherwise.
      */
     public DNode search(DNode node) {
-        DNode current = head;
+        DNode current = this.head;
         while (current != null) {
             if (current == node) {
                 return current;
             }
             current = current.getNext();
             // If the list is circular and we have reached the head again, break the loop
-            if (current == head && tail != null && tail.getNext() == head) {
+            if (current == this.head && this.tail != null && this.tail.getNext() == this.head) {
                 break;
             }
         }
@@ -213,19 +213,19 @@ public class DLL {
      * and the data of each node in the list.
      */
     public void print() {
-        if (size == 0) {
+        if (this.size == 0) {
             System.out.println("List is empty");
             return;
         }
-        boolean isCircular = (tail != null && tail.getNext() == head);
-        System.out.println("List length: " + size);
+        boolean isCircular = (this.tail != null && this.tail.getNext() == this.head);
+        System.out.println("List length: " + this.size);
         System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
         System.out.print("List content: ");
-        DNode current = head;
+        DNode current = this.head;
         do {
             System.out.print(current.getData() + " ");
             current = current.getNext();
-        } while (isCircular ? current != head : current != null);
+        } while (isCircular ? current != this.head : current != null);
         System.out.println();
     }
 
@@ -234,10 +234,10 @@ public class DLL {
      * using the insertion sort algorithm.
      */
     public void sort() {
-        if (size <= 1) {
+        if (this.size <= 1) {
             return;
         }
-        DNode current = head.getNext();
+        DNode current = this.head.getNext();
         while (current != null) {
             DNode next = current.getNext();
             while (current.getPrev() != null && current.getData() < current.getPrev().getData()) {
@@ -251,12 +251,12 @@ public class DLL {
                 if (prevPrev != null) {
                     prevPrev.setNext(current);
                 } else {
-                    head = current;
+                    this.head = current;
                 }
                 if (currentNext != null) {
                     currentNext.setPrev(prev);
                 } else {
-                    tail = prev;
+                    this.tail = prev;
                 }
             }
             current = next;
@@ -269,7 +269,7 @@ public class DLL {
      * @param node the node to be inserted
     */
     public void sortedInsert(DNode node) {
-        if (head == null) {
+        if (this.head == null) {
             insertHead(node);
             return;
         }
@@ -277,22 +277,22 @@ public class DLL {
             sort();
         }
         // Traverse the list to find the position to insert the node
-        DNode current = head;
+        DNode current = this.head;
         while (current != null && current.getData() < node.getData()) {
             current = current.getNext();
         }
         // If the node should be inserted at the end of the list
         if (current == null) {
             node.setPrev(tail);
-            tail.setNext(node);
-            tail = node;
+            this.tail.setNext(node);
+            this.tail = node;
         } 
         // If the node should be inserted at the beginning of the list
-        else if (current == head) {
+        else if (current == this.head) {
             node.setPrev(null);
-            node.setNext(head);
-            head.setPrev(node);
-            head = node;
+            node.setNext(this.head);
+            this.head.setPrev(node);
+            this.head = node;
         } 
         // If the node should be inserted in the middle of the list
         else {
@@ -301,7 +301,7 @@ public class DLL {
             current.getPrev().setNext(node);
             current.setPrev(node);
         }
-        size++;
+        this.size++;
     }
 
     /**
@@ -313,10 +313,10 @@ public class DLL {
      *         false otherwise
      */
     public boolean isSorted() {
-        if (head == null || size == 1) {
+        if (this.head == null || this.size == 1) {
             return true;
         }
-        DNode current = head;
+        DNode current = this.head;
         while (current != null && current.getNext() != null) {
             if (current.getData() > current.getNext().getData()) {
                 return false;
