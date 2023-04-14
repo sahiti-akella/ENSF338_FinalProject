@@ -129,7 +129,10 @@ public class StackLL extends SLL {
     public void clear() {
         super.clear();
     }
-
+    
+    /**
+     * Overrided print function
+     */
     @Override
     public void print() {
         SNode<Integer> current = head;
