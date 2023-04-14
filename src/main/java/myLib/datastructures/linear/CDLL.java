@@ -40,11 +40,11 @@ public class CDLL extends DLL {
      * If the list is empty, the new node becomes both the head and tail.
      * Updates tail next and head prev for circular list
      * 
-     * @param node the node to be inserted at the head of the list
+     * @param node the node to be Inserted at the head of the list
      */
     @Override
-    public void insertHead(DNode<Integer> node) {
-        super.insertHead(node);
+    public void InsertHead(DNode<Integer> node) {
+        super.InsertHead(node);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -57,11 +57,11 @@ public class CDLL extends DLL {
      * If the list is empty, the new node becomes both the head and tail.
      * Updates tail next and head prev for circular list
      * 
-     * @param node the node to be inserted at the tail of the list
+     * @param node the node to be Inserted at the tail of the list
      */
     @Override
-    public void insertTail(DNode<Integer> node) {
-        super.insertTail(node);
+    public void InsertTail(DNode<Integer> node) {
+        super.InsertTail(node);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -73,14 +73,14 @@ public class CDLL extends DLL {
      * Inserts a given node at a specific position in the Doubly Circular Linked List.
      * Updates tail next and head prev for circular list
      * 
-     * @param node     the node to be inserted
-     * @param position the position where the node should be inserted, 1-based index
+     * @param node     the node to be Inserted
+     * @param position the position where the node should be Inserted, 1-based index
      * @throws IllegalArgumentException if the position is less than 1 or greater
      *                                  than the size of the list + 1
      */
     @Override
-    public void insert(DNode<Integer> node, int position) {
-        super.insert(node, position);
+    public void Insert(DNode<Integer> node, int position) {
+        super.Insert(node, position);
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -95,8 +95,8 @@ public class CDLL extends DLL {
      * Updates tail next and head prev for circular list
      */
     @Override
-    public void deleteHead() {
-        super.deleteHead();
+    public void DeleteHead() {
+        super.DeleteHead();
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -111,8 +111,8 @@ public class CDLL extends DLL {
      * Updates tail next and head prev for circular list
      */
     @Override
-    public void deleteTail() {
-        super.deleteTail();
+    public void DeleteTail() {
+        super.DeleteTail();
         // If the list is circular, set the tail's next reference to the head
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -122,17 +122,17 @@ public class CDLL extends DLL {
 
     /**
      * Deletes a given node from the doubly linked list. If the node is the head, it
-     * calls deleteHead().
-     * If the node is the tail, it calls deleteTail().
+     * calls DeleteHead().
+     * If the node is the tail, it calls DeleteTail().
      * Otherwise, it removes the node from the list by updating the previous and
      * next nodes to bypass it.
      * Updates tail next and head prev for circular list
      * 
-     * @param node the node to be deleted from the list
+     * @param node the node to be Deleted from the list
      */
     @Override
-    public void delete(DNode<Integer> node) {
-        super.delete(node);
+    public void Delete(DNode<Integer> node) {
+        super.Delete(node);
         // update tail's next reference if the list is circular
         if (tail != null && tail.getNext() != head) {
             tail.setNext(head);
@@ -143,37 +143,37 @@ public class CDLL extends DLL {
     /**
      * Removes all of the elements from the circular doubly linked list.
      */
-    public void clear() {
-        super.clear();
+    public void Clear() {
+        super.Clear();
     }
 
     /**
      * Searches for a given node in the circular doubly linked list
      * 
-     * @param node The node to search for in the list.
+     * @param node The node to Search for in the list.
      * @return The node if found, null otherwise.
      */
-    public DNode<Integer> search(DNode<Integer> node) {
-        return super.search(node);
+    public DNode<Integer> Search(DNode<Integer> node) {
+        return super.Search(node);
 
     }
 
     /**
      * Prints the contents of the circular doubly linked list.
      * If the list is empty, it prints a message indicating that.
-     * Otherwise, it prints the length of the list, its sorted status,
+     * Otherwise, it prints the length of the list, its Sorted status,
      * and the data of each node in the list.
      */
-    public void print() {
-        super.print();
+    public void Print() {
+        super.Print();
     }
 
      /**
      * Sorts the elements of the circular doubly linked list in ascending order
-     * using the insertion sort algorithm.
+     * using the Insertion Sort algorithm.
      */
     @Override
-    public void sort() {
+    public void Sort() {
         if (size <= 1) {
             return;
         }
@@ -203,20 +203,20 @@ public class CDLL extends DLL {
     }
 
     /**
-     * Inserts a new node in the circular doubly linked list while maintaining a sorted order.
-     * If the list is empty, the node is inserted as the head of the list.
-     * @param node the node to be inserted
+     * Inserts a new node in the circular doubly linked list while maintaining a Sorted order.
+     * If the list is empty, the node is Inserted as the head of the list.
+     * @param node the node to be Inserted
     */
     @Override
-    public void sortedInsert(DNode<Integer> node) {
+    public void SortedInsert(DNode<Integer> node) {
         if (head == null) {
-            insertHead(node);
+            InsertHead(node);
             return;
         }
-        if (!isSorted()) {
-            sort();
+        if (!IsSorted()) {
+            Sort();
         }
-        // Find the appropriate position for the new node in the sorted list
+        // Find the appropriate position for the new node in the Sorted list
         DNode<Integer> current = head;
         while (current != tail && current.getData() < node.getData()) {
             current = current.getNext();
@@ -248,15 +248,15 @@ public class CDLL extends DLL {
     }
 
     /**
-     * Checks whether the circular doubly linked list is sorted in non-decreasing order.
-     * Returns true if the circular doubly linked list is sorted in non-decreasing order,
+     * Checks whether the circular doubly linked list is Sorted in non-decreasing order.
+     * Returns true if the circular doubly linked list is Sorted in non-decreasing order,
      * false otherwise.
      *
-     * @return true if the doubly linked list is sorted in non-decreasing order,
+     * @return true if the doubly linked list is Sorted in non-decreasing order,
      *         false otherwise
      */
     @Override
-    public boolean isSorted() {
+    public boolean IsSorted() {
         if (head == null || size == 1) {
             return true;
         }

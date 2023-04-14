@@ -37,10 +37,10 @@ public class CSLL extends SLL {
      * Inserts a node at the head of the singly linked list.
      * Also updates the tail's next to the new head.
      * 
-     * @param node the node to insert at the end of the list
+     * @param node the node to Insert at the end of the list
      */
     @Override
-    public void insertHead(SNode<Integer> node) {
+    public void InsertHead(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -57,10 +57,10 @@ public class CSLL extends SLL {
      * Inserts a node at the end of the singly linked list.
      * Also updates the tail's next to the new head.
      * 
-     * @param node the node to insert at the end of the list
+     * @param node the node to Insert at the end of the list
      */
     @Override
-    public void insertTail(SNode<Integer> node) {
+    public void InsertTail(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -76,12 +76,12 @@ public class CSLL extends SLL {
     /**
      * Inserts a node at the specified position in the singly linked list.
      * 
-     * @param node     the node to be inserted
-     * @param position the position at which the node should be inserted, 1-based index
+     * @param node     the node to be Inserted
+     * @param position the position at which the node should be Inserted, 1-based index
      * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
-    public void insert(SNode<Integer> node, int position) {
-        super.insert(node, position);
+    public void Insert(SNode<Integer> node, int position) {
+        super.Insert(node, position);
     }
 
     /**
@@ -89,7 +89,7 @@ public class CSLL extends SLL {
      * If the list is empty, the method does nothing.
      */
     @Override
-    public void deleteHead() {
+    public void DeleteHead() {
         if (head == null) {
             return;
         }
@@ -108,7 +108,7 @@ public class CSLL extends SLL {
      * If the list is empty, the method does nothing.
      */
     @Override
-    public void deleteTail() {
+    public void DeleteTail() {
         if (head == null) {
             return;
         }
@@ -129,19 +129,19 @@ public class CSLL extends SLL {
     /**
      * Deletes a given node from the linked list.
      * 
-     * @param node the node to be deleted from the linked list.
+     * @param node the node to be Deleted from the linked list.
      */
     @Override
-    public void delete(SNode<Integer> node) {
+    public void Delete(SNode<Integer> node) {
         if (head == null) {
             return;
         }
         if (head.equals(node)) {
-            deleteHead();
+            DeleteHead();
             return;
         }
         if (tail.equals(node)) {
-            deleteTail();
+            DeleteTail();
             return;
         }
         SNode<Integer> current = head;
@@ -161,25 +161,25 @@ public class CSLL extends SLL {
     /**
      * Searches for a given node in the singly linked list, starting from the head.
      * 
-     * @param node the node to search for in the list
+     * @param node the node to Search for in the list
      * @return the node if found in the list, otherwise null
      */
-    public SNode<Integer> search(SNode<Integer> node) {
-        return super.search(node);
+    public SNode<Integer> Search(SNode<Integer> node) {
+        return super.Search(node);
     }
 
     /**
      * Removes all elements from this linked list.
      * The head, tail, and size of the linked list are all set to null or 0.
      */
-    public void clear() {
-        super.clear();
+    public void Clear() {
+        super.Clear();
     }
 
     /**
      * Prints the contents of the linked list to the console.
      * If the list is empty, the method prints "List is empty".
-     * Otherwise, the method prints the length of the list, the sorted status of the
+     * Otherwise, the method prints the length of the list, the Sorted status of the
      * list, and the content of the list.
      * The content of the list is printed as a space-separated sequence of elements.
      * If the list is circular (i.e., the tail node's next pointer points to the
@@ -187,19 +187,19 @@ public class CSLL extends SLL {
      * of the list once, starting from the head node and stopping when the method
      * reaches the head node again.
      */
-    public void print() {
-        super.print();
+    public void Print() {
+        super.Print();
     }
 
     /**
-     * Inserts a new node into the sorted circular singly linked list in ascending
+     * Inserts a new node into the Sorted circular singly linked list in ascending
      * order.
-     * If the list is not sorted, it will first be sorted using the sort() method.
+     * If the list is not Sorted, it will first be Sorted using the Sort() method.
      * 
-     * @param node the node to be inserted into the list
+     * @param node the node to be Inserted into the list
      */
     @Override
-    public void sortedInsert(SNode<Integer> node) {
+    public void SortedInsert(SNode<Integer> node) {
         if (head == null) {
             head = node;
             tail = node;
@@ -221,21 +221,21 @@ public class CSLL extends SLL {
         }
 
         size++;
-        if (!isSorted()) {
-            sort();
+        if (!IsSorted()) {
+            Sort();
         }
     }
 
     /**
-     * Sorts the elements in the circular linked list using the insertion sort
+     * Sorts the elements in the circular linked list using the Insertion Sort
      * algorithm.
-     * The method sorts the list in place, i.e., it modifies the list by rearranging
+     * The method Sorts the list in place, i.e., it modifies the list by rearranging
      * the nodes.
      * If the list is empty or contains only one element, the method returns
      * immediately without modifying the list.
      */
     @Override
-    public void sort() {
+    public void Sort() {
         if (head == null || head == tail) {
             return;
         } else {
@@ -257,15 +257,15 @@ public class CSLL extends SLL {
     }
 
     /**
-     * Checks whether the linked list is sorted in non-decreasing order.
-     * Returns true if the linked list is sorted in non-decreasing order,
+     * Checks whether the linked list is Sorted in non-decreasing order.
+     * Returns true if the linked list is Sorted in non-decreasing order,
      * false otherwise.
      *
-     * @return true if the linked list is sorted in non-decreasing order,
+     * @return true if the linked list is Sorted in non-decreasing order,
      *         false otherwise
      */
     @Override
-    protected boolean isSorted() {
+    protected boolean IsSorted() {
         if (head == null || size == 1) {
             return true;
         }

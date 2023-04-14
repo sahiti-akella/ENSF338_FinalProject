@@ -37,9 +37,9 @@ public class BonusCharSLL {
     /**
      * Inserts a node at the head of the singly linked list.
      * 
-     * @param node the node to be inserted.
+     * @param node the node to be Inserted.
      */
-    public void insertHead(SNode<Character> node) {
+    public void InsertHead(SNode<Character> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -53,9 +53,9 @@ public class BonusCharSLL {
     /**
      * Inserts a node at the tail of the singly linked list.
      * 
-     * @param node the node to be inserted.
+     * @param node the node to be Inserted.
      */
-    public void insertTail(SNode<Character> node) {
+    public void InsertTail(SNode<Character> node) {
         if (this.head == null) {
             this.head = node;
             this.tail = node;
@@ -68,20 +68,20 @@ public class BonusCharSLL {
 
     /**
      * Inserts a new node at the specified position in the linked list.
-     * If 5 inserted at position 2 of linked list 1234 = 15234
+     * If 5 Inserted at position 2 of linked list 1234 = 15234
      * 
-     * @param node     the node to be inserted
-     * @param position the position at which the node should be inserted, 1-based index
+     * @param node     the node to be Inserted
+     * @param position the position at which the node should be Inserted, 1-based index
      * @throws IndexOutOfBoundsException if the position is less than 1 or greater than the size of the list + 1
      */
-    public void insert(SNode<Character> node, int position) {
+    public void Insert(SNode<Character> node, int position) {
         if (position < 1 || position > this.size + 1) {
-            throw new IndexOutOfBoundsException("Invalid position for insertion");
+            throw new IndexOutOfBoundsException("Invalid position for Insertion");
         }
         if (position == 1) {
-            insertHead(node);
+            InsertHead(node);
         } else if (position == this.size + 1) {
-            insertTail(node);
+            InsertTail(node);
         } else {
             SNode<Character> current = this.head;
             for (int i = 2; i < position; i++) {
@@ -94,14 +94,14 @@ public class BonusCharSLL {
     }
 
     /**
-     * Inserts a new node into the sorted singly linked list in ascending order.
-     * If the list is not sorted, it will first be sorted using the sort() method.
+     * Inserts a new node into the Sorted singly linked list in ascending order.
+     * If the list is not Sorted, it will first be Sorted using the Sort() method.
      * 
-     * @param node the node to be inserted into the list
+     * @param node the node to be Inserted into the list
      */
-    public void sortedInsert(SNode<Character> node) {
+    public void SortedInsert(SNode<Character> node) {
         if (this.head == null || node.getData() < this.head.getData()) {
-            insertHead(node);
+            InsertHead(node);
         } else {
             SNode<Character> current = this.head;
             while (current.getNext() != null && node.getData() > current.getNext().getData()) {
@@ -111,18 +111,18 @@ public class BonusCharSLL {
             current.setNext(node);
             size++;
         }
-        if (!isSorted()) {
-            sort();
+        if (!IsSorted()) {
+            Sort();
         }
     }
 
     /**
      * Searches for a given node in the singly linked list, starting from the head.
      * 
-     * @param node the node to search for in the list
+     * @param node the node to Search for in the list
      * @return the node if found in the list, otherwise null
      */
-    public SNode<Character> search(SNode<Character> node) {
+    public SNode<Character> Search(SNode<Character> node) {
         SNode<Character> current = this.head;
         boolean isCircular = false;
         while (current != null && !isCircular) {
@@ -141,7 +141,7 @@ public class BonusCharSLL {
      * Removes the head node of this linked list. If the list is empty, this method
      * does nothing.
      */
-    public void deleteHead() {
+    public void DeleteHead() {
         if (this.head == null) {
             return;
         }
@@ -159,7 +159,7 @@ public class BonusCharSLL {
      * Removes the tail node of this linked list. If the list is empty, this method
      * does nothing.
      */
-    public void deleteTail() {
+    public void DeleteTail() {
         if (this.head == null) {
             return;
         }
@@ -181,18 +181,18 @@ public class BonusCharSLL {
     /**
      * Deletes a given node from the linked list.
      * 
-     * @param node the node to be deleted from the linked list.
+     * @param node the node to be Deleted from the linked list.
      */
-    public void delete(SNode<Character> node) {
+    public void Delete(SNode<Character> node) {
         if (this.head == null) {
             return;
         }
         if (this.head.equals(node)) {
-            deleteHead();
+            DeleteHead();
             return;
         }
         if (this.tail.equals(node)) {
-            deleteTail();
+            DeleteTail();
             return;
         }
         SNode<Character> current = this.head;
@@ -211,11 +211,11 @@ public class BonusCharSLL {
 
     /**
      * Sorts the elements of the singly linked list in non-descending order using
-     * insertion sort algorithm.
-     * The sorting is performed in-place, so no new linked list is created.
+     * Insertion Sort algorithm.
+     * The Sorting is performed in-place, so no new linked list is created.
      */
-    public void sort() {
-        if (this.head == null || this.head.getNext() == null || this.isSorted()) {
+    public void Sort() {
+        if (this.head == null || this.head.getNext() == null || this.IsSorted()) {
             return;
         }
 
@@ -227,12 +227,12 @@ public class BonusCharSLL {
                 current.setNext(newHead);
                 newHead = current;
             } else {
-                SNode<Character> search = newHead;
-                while (search.getNext() != null && current.getData() > search.getNext().getData()) {
-                    search = search.getNext();
+                SNode<Character> Search = newHead;
+                while (Search.getNext() != null && current.getData() > Search.getNext().getData()) {
+                    Search = Search.getNext();
                 }
-                current.setNext(search.getNext());
-                search.setNext(current);
+                current.setNext(Search.getNext());
+                Search.setNext(current);
             }
             current = next;
         }
@@ -244,7 +244,7 @@ public class BonusCharSLL {
      * Removes all elements from this linked list.
      * The head, tail, and size of the linked list are all set to null or 0.
      */
-    public void clear() {
+    public void Clear() {
         this.head = null;
         this.tail = null;
         this.size = 0;
@@ -253,7 +253,7 @@ public class BonusCharSLL {
     /**
      * Prints the contents of the linked list to the console.
      * If the list is empty, the method prints "List is empty".
-     * Otherwise, the method prints the length of the list, the sorted status of the
+     * Otherwise, the method prints the length of the list, the Sorted status of the
      * list, and the content of the list.
      * The content of the list is printed as a space-separated sequence of elements.
      * If the list is circular (i.e., the tail node's next pointer points to the
@@ -261,14 +261,14 @@ public class BonusCharSLL {
      * of the list once, starting from the head node and stopping when the method
      * reaches the head node again.
      */
-    public void print() {
+    public void Print() {
         if (this.size == 0) {
             System.out.println("List is empty");
             return;
         }
         boolean isCircular = (this.tail != null && this.tail.getNext() == this.head);
         System.out.println("List length: " + this.size);
-        System.out.println("Sorted status: " + (isSorted() ? "sorted" : "unsorted"));
+        System.out.println("Sorted status: " + (IsSorted() ? "Sorted" : "unSorted"));
         System.out.print("List content: ");
         SNode<Character> current = this.head;
         do {
@@ -279,14 +279,14 @@ public class BonusCharSLL {
     }
 
     /**
-     * Checks whether the linked list is sorted in non-decreasing order.
-     * Returns true if the linked list is sorted in non-decreasing order,
+     * Checks whether the linked list is Sorted in non-decreasing order.
+     * Returns true if the linked list is Sorted in non-decreasing order,
      * false otherwise.
      *
-     * @return true if the linked list is sorted in non-decreasing order,
+     * @return true if the linked list is Sorted in non-decreasing order,
      *         false otherwise
      */
-    protected boolean isSorted() {
+    protected boolean IsSorted() {
         if (this.head == null || this.size == 1) {
             return true;
         }

@@ -25,39 +25,39 @@ public class BonusCharSLLTests {
 
         // Test insertHead and insertTail
         System.out.println("\n-----------Testing insertHead and insertTail, expected: c a b");
-        list.insertHead(node);
-        list.insertTail(new SNode<Character>('b'));
-        list.insertHead(new SNode<Character>('c'));
-        list.print(); // should print "List content: c a b "
+        list.InsertHead(node);
+        list.InsertTail(new SNode<Character>('b'));
+        list.InsertHead(new SNode<Character>('c'));
+        list.Print(); // should print "List content: c a b "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test insert
         System.out.println("\n-----------Testing insert, expected: e c d a b f");
-        list.insert(new SNode<Character>('d'), 2);
-        list.insert(new SNode<Character>('e'), 1);
-        list.insert(new SNode<Character>('f'), 6);
-        list.print(); // should print "List content: e c d a b f "
+        list.Insert(new SNode<Character>('d'), 2);
+        list.Insert(new SNode<Character>('e'), 1);
+        list.Insert(new SNode<Character>('f'), 6);
+        list.Print(); // should print "List content: e c d a b f "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test sort, search, deleteHead, deleteTail, and delete
         System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: c d b ");
-        list.deleteHead();
-        list.deleteTail();
-        System.out.println("Search node: " + list.search(node)); // should print "Search node: a"
-        list.delete(node);
-        list.print(); // should print "List content: c d b"
+        list.DeleteHead();
+        list.DeleteTail();
+        System.out.println("Search node: " + list.Search(node)); // should print "Search node: a"
+        list.Delete(node);
+        list.Print(); // should print "List content: c d b"
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
-        list.clear();
-        list.print(); // should print "List is empty"
+        list.Clear();
+        list.Print(); // should print "List is empty"
 
         
         // SLL LIST2
@@ -66,38 +66,38 @@ public class BonusCharSLLTests {
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
         BonusCharSLL list2 = new BonusCharSLL(new SNode<Character>('e'));
-        list2.print();
+        list2.Print();
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext() + "\n");
-        list2.insertHead(new SNode<Character>('d'));
-        list2.insertHead(new SNode<Character>('b'));
-        list2.insertHead(new SNode<Character>('c'));
-        list2.insertHead(new SNode<Character>('a'));
+        list2.InsertHead(new SNode<Character>('d'));
+        list2.InsertHead(new SNode<Character>('b'));
+        list2.InsertHead(new SNode<Character>('c'));
+        list2.InsertHead(new SNode<Character>('a'));
         System.out.println("Before sort:");
-        list2.print(); // should print "List content: a c b d e"
-        list2.sort();
+        list2.Print(); // should print "List content: a c b d e"
+        list2.Sort();
         System.out.println("After sort:");
-        list2.print(); // should print "List content: a b c d e"
+        list2.Print(); // should print "List content: a b c d e"
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
 
         // Test clear and print
         System.out.println("\n-----------Testing clear and print, expected: List is empty ");
-        list2.clear();
-        list2.print(); // should print "List is empty"
+        list2.Clear();
+        list2.Print(); // should print "List is empty"
 
         
         // Test sortedInsert and sort
         System.out.println("\n-----------Testing sortedInsert, expected: a b c d e f");
-        list2.sortedInsert(new SNode<Character>('f'));
-        list2.sortedInsert(new SNode<Character>('a'));
-        list2.sortedInsert(new SNode<Character>('c'));
-        list2.sortedInsert(new SNode<Character>('b'));
-        list2.sortedInsert(new SNode<Character>('e'));
-        list2.sortedInsert(new SNode<Character>('d'));
-        list2.print(); // should print "List content: a b c d e f "
+        list2.SortedInsert(new SNode<Character>('f'));
+        list2.SortedInsert(new SNode<Character>('a'));
+        list2.SortedInsert(new SNode<Character>('c'));
+        list2.SortedInsert(new SNode<Character>('b'));
+        list2.SortedInsert(new SNode<Character>('e'));
+        list2.SortedInsert(new SNode<Character>('d'));
+        list2.Print(); // should print "List content: a b c d e f "
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
