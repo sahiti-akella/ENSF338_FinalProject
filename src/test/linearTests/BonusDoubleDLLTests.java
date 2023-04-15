@@ -1,16 +1,16 @@
-package main.java.myLib.test.linearTests;
+package test.linearTests;
 
 import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.linear.*;
 
 /**
- * This class provides a set of tests for the DLL class, which implements a
+ * This class provides a set of tests for the BonusDoubleDLL class, which implements a
  * doubly linked list.
  */
 
- public class DLLTests {
+ public class BonusDoubleDLLTests {
     /**
-     * The main method of this class runs a set of tests on the DLL class.
+     * The main method of this class runs a set of tests on the BonusDoubleDLL class.
      * 
      * @param args the command line arguments
      */
@@ -18,39 +18,39 @@ import main.java.myLib.datastructures.linear.*;
         System.out.println("\nTESTING DOUBLY LINKED LIST: PREV SHOULD NOT BE NULL AND TAIL NEXT SHOULD BE NULL");
 
         // Empty constructor
-        DLL list = new DLL();
-        DNode<Integer> node = new DNode<Integer>(1);
+        BonusDoubleDLL list = new BonusDoubleDLL();
+        DNode<Double> node = new DNode<Double>(1.0);
 
         // SLL LIST
 
         // Test insertHead and insertTail
         System.out.println("\n\n---LIST 1---");
-        System.out.println("\n-----------Testing insertHead and insertTail, expected: 3 1 2");
+        System.out.println("\n-----------Testing insertHead and insertTail, expected: 3.0 1.0 2.0");
         list.InsertHead(node);
-        list.InsertTail(new DNode<Integer>(2));
-        list.InsertHead(new DNode<Integer>(3));
-        list.Print(); // should print "List content: 3 1 2 "
+        list.InsertTail(new DNode<Double>(2.0));
+        list.InsertHead(new DNode<Double>(3.0));
+        list.Print(); // should print "List content: 3.0 1.0 2.0 "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test insert
-        System.out.println("\n-----------Testing insert, expected: 5 3 4 1 2 6");
-        list.Insert(new DNode<Integer>(4), 2);
-        list.Insert(new DNode<Integer>(5), 1);
-        list.Insert(new DNode<Integer>(6), 6);
-        list.Print(); // should print "List content: 5 3 4 1 2 6 "
+        System.out.println("\n-----------Testing insert, expected: 5.0 3.0 4.0 1.0 2.0 6.0");
+        list.Insert(new DNode<Double>(4.0), 2);
+        list.Insert(new DNode<Double>(5.0), 1);
+        list.Insert(new DNode<Double>(6.0), 6);
+        list.Print(); // should print "List content: 5.0 3.0 4.0 1.0 2.0 6.0 "
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test sort, search, deleteHead, deleteTail, and delete
-        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 3 4 2 ");
+        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 3.0 4.0 2.0 ");
         list.DeleteHead();
         list.DeleteTail();
-        System.out.println("Search node: " + list.Search(node)); // should print "Search node: 1"
+        System.out.println("Search node: " + list.Search(node)); // should print "Search node: 1.0"
         list.Delete(node);
-        list.Print(); // should print "List content: 3 4 2"
+        list.Print(); // should print "List content: 3.0 4.0 2.0"
         System.out.println("\nTail: " + list.tail);
         System.out.println("Tail prev: " + list.tail.getPrev());
         System.out.println("Tail next: " + list.tail.getNext());
@@ -66,20 +66,20 @@ import main.java.myLib.datastructures.linear.*;
         System.out.println("\n\n---LIST 2---");
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
-        DLL list2 = new DLL(new DNode<Integer>(5));
+        BonusDoubleDLL list2 = new BonusDoubleDLL(new DNode<Double>(5.0));
         list2.Print();
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext() + "\n");
-        list2.InsertHead(new DNode<Integer>(4));
-        list2.InsertHead(new DNode<Integer>(2));
-        list2.InsertHead(new DNode<Integer>(3));
-        list2.InsertHead(new DNode<Integer>(1));
+        list2.InsertHead(new DNode<Double>(4.0));
+        list2.InsertHead(new DNode<Double>(2.0));
+        list2.InsertHead(new DNode<Double>(3.0));
+        list2.InsertHead(new DNode<Double>(1.0));
         System.out.println("Before sort:");
-        list2.Print(); // should print "List content: 1 3 2 4 5"
+        list2.Print(); // should print "List content: 1.0 3.0 2.0 4.0 5.0"
         list2.Sort();
         System.out.println("After sort:");
-        list2.Print(); // should print "List content: 1 2 3 4 5"
+        list2.Print(); // should print "List content: 1.0 2.0 3.0 4.0 5.0"
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());
@@ -90,14 +90,14 @@ import main.java.myLib.datastructures.linear.*;
         list2.Print(); // should print "List is empty"
 
         // Test sortedInsert and sort
-        System.out.println("\n-----------Testing sortedInsert, expected: 1 2 3 4 5 6 ");
-        list2.SortedInsert(new DNode<Integer>(6));
-        list2.SortedInsert(new DNode<Integer>(1));
-        list2.SortedInsert(new DNode<Integer>(3));
-        list2.SortedInsert(new DNode<Integer>(2));
-        list2.SortedInsert(new DNode<Integer>(5));
-        list2.SortedInsert(new DNode<Integer>(4));
-        list2.Print(); // should print "List content: 1 2 3 4 5 6 "
+        System.out.println("\n-----------Testing sortedInsert, expected: 1.0 2.0 3.0 4.0 5.0 6.0 ");
+        list2.SortedInsert(new DNode<Double>(6.0));
+        list2.SortedInsert(new DNode<Double>(1.0));
+        list2.SortedInsert(new DNode<Double>(3.0));
+        list2.SortedInsert(new DNode<Double>(2.0));
+        list2.SortedInsert(new DNode<Double>(5.0));
+        list2.SortedInsert(new DNode<Double>(4.0));
+        list2.Print(); // should print "List content: 1.0 2.0 3.0 4.0 5.0 6.0  "
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());
         System.out.println("Tail next: " + list2.tail.getNext());

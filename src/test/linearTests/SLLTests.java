@@ -1,27 +1,27 @@
-package main.java.myLib.test.linearTests;
+package test.linearTests;
 
 import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.linear.*;
 
 /**
- * This class provides a set of tests for the CSLL class, which implements a
- * circular singly linked list.
+ * This class provides a set of tests for the SLL class, which implements a
+ * singly linked list.
  */
 
-public class CSLLTests {
+public class SLLTests {
     /**
-     * The main method of this class runs a set of tests on the CSLL class.
+     * The main method of this class runs a set of tests on the SLL class.
      * 
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("\nTESTING CIRCULAR SINGLY LINKED LIST: PREV SHOULD BE NULL AND TAIL NEXT SHOULD BE HEAD");
+        System.out.println("\nTESTING SINGLY LINKED LIST: PREV SHOULD BE NULL AND TAIL NEXT SHOULD BE NULL");
 
         // Empty constructor
-        CSLL list = new CSLL();
+        SLL list = new SLL();
         SNode<Integer> node = new SNode<Integer>(1);
 
-        // CSLL LIST
+        // SLL LIST
 
         // Test insertHead and insertTail
         System.out.println("\n\n---LIST 1---");
@@ -45,7 +45,7 @@ public class CSLLTests {
         System.out.println("Tail next: " + list.tail.getNext());
 
         // Test sort, search, deleteHead, deleteTail, and delete
-        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected: 3 4 2 ");
+        System.out.println("\n-----------Testing search, deleteHead, deleteTail, and delete, expected:  3 4 2 ");
         list.DeleteHead();
         list.DeleteTail();
         System.out.println("Search node: " + list.Search(node)); // should print "Search node: 1"
@@ -60,13 +60,13 @@ public class CSLLTests {
         list.Clear();
         list.Print(); // should print "List is empty"
 
-        // CSLL LIST2
+        // SLL LIST2
 
         // Test sort
         System.out.println("\n\n---LIST 2---");
         System.out.println("\n-----------Testing constructor and sort: ");
         // Test constructor
-        CSLL list2 = new CSLL(new SNode<Integer>(5));
+        SLL list2 = new SLL(new SNode<Integer>(5));
         list2.Print();
         System.out.println("\nTail: " + list2.tail);
         System.out.println("Tail prev: " + list2.tail.getPrev());

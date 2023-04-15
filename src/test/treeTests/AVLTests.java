@@ -1,4 +1,4 @@
-package main.java.myLib.test.treeTests;
+package test.treeTests;
 
 import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.trees.*;

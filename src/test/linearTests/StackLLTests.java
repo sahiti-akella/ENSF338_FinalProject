@@ -1,4 +1,4 @@
-package main.java.myLib.test.linearTests;
+package test.linearTests;
 
 import main.java.myLib.datastructures.nodes.*;
 import main.java.myLib.datastructures.linear.*;
