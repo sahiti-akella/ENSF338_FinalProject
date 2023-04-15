@@ -22,69 +22,79 @@ public class App {
         Scanner input = new Scanner(System.in);
         int choice = 0;
         while (choice != 11) {
-            System.out.println("Select an option:");
+            System.out.println("Choose an option:");
             System.out.println("1. Test SLL");
-            System.out.println("2. Test QueueLL");
-            System.out.println("3. Test StackLL");
-            System.out.println("4. Test DLL");
-            System.out.println("5. Test CDLL");
-            System.out.println("6. Test CSLL");
+            System.out.println("2. Test DLL");
+            System.out.println("3. Test CSLL");
+            System.out.println("4. Test CDLL");
+            System.out.println("5. Test StackLL");
+            System.out.println("6. Test QueueLL");
             System.out.println("7. Test BST");
             System.out.println("8. Test AVL");
             System.out.println("9. Test Bonus Char SLL");
             System.out.println("10. Test Bonus Double DLL");
             System.out.println("11. Exit");
-            System.out.print("Enter your choice: ");
+            System.out.print("Enter a number: ");
             choice = input.nextInt();
 
             switch (choice) {
                 case 1:
-                    System.out.println("Testing Singly Linked List (SLL)");
+                    System.out.println("Running SLL Tests");
                     testSLL();
                     break;
+
                 case 2:
-                    System.out.println("Testing Queue using Linked List (QueueLL)");
-                    testQueueLL();
-                    break;
-                case 3:
-                    System.out.println("Testing Stack using Linked List (StackLL)");
-                    testStackLL();
-                    break;
-                case 4:
-                    System.out.println("Testing Doubly Linked List (DLL)");
+                    System.out.println("Running DLL Tests");
                     testDLL();
                     break;
-                case 5:
-                    System.out.println("Testing Circular Doubly Linked List (CDLL)");
-                    testCDLL();
-                    break;
-                case 6:
-                    System.out.println("Testing Circular Singly Linked List (CSLL)");
+
+                case 3:
+                    System.out.println("Running CSLL Tests");
                     testCSLL();
                     break;
+
+                case 4:
+                    System.out.println("Running CDLL Tests");
+                    testCDLL();
+                    break;
+
+                case 5:
+                    System.out.println("Running StackLL Tests");
+                    testStackLL();
+                    break;
+
+                case 6:
+                    System.out.println("Running QueueLL Tests");
+                    testQueueLL();
+                    break;
+
                 case 7:
-                    System.out.println("Testing Binary Search Tree(BST)");
+                    System.out.println("Running BST Tests");
                     testBST();
                     break;
+
                 case 8:
-                    System.out.println("Testing AVL Tree(AVL)");
+                    System.out.println("Running AVL Tests");
                     testAVL();
                     break;
+
                 case 9:
-                    System.out.println("Testing Bonus Char SLL");
+                    System.out.println("Running Bonus Char SLL Tests");
                     testBonusCharSLLTests();
                     break;
+
                 case 10:
-                    System.out.println("Testing Bonus Double DLL");
+                    System.out.println("Running Bonus Double DLLTests");
                     testBonusDoubleDLLTests();
                     break;
+
                 case 11:
-                    System.out.println("Exiting...");
+                    System.out.println("Quitting Program");
                     System.exit(0);
                     break;
                     
                 default:
-                    System.out.println("Invalid choice.");
+                    System.out.println("Invalid choice");
                     break;
             }
         }
